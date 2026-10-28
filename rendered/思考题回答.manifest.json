@@ -21,6 +21,6 @@
       "over_limit": false
     }
   ],
-  "part_limit_bytes": 200000,
+  "part_limit_bytes": 300000,
   "parts_text_matches_full": true
 }
