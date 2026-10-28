@@ -1,130 +1,24 @@
 {
-  "metadata": {
-    "language": "zh-CN",
-    "style": "white background; restrained blue, teal and purple; vector first",
-    "timeline_note": "Dates identify selected literature nodes; arrows indicate methodological or data-flow relationships, not replacement.",
-    "sources": {
-      "1": {"citation": "Ouyang et al. (2022), Training Language Models to Follow Instructions with Human Feedback", "url": "https://arxiv.org/abs/2203.02155"},
-      "6": {"citation": "Gao, Schulman & Hilton (2022), Scaling Laws for Reward Model Overoptimization", "url": "https://arxiv.org/abs/2210.10760"},
-      "7": {"citation": "Rafailov et al. (2023), Direct Preference Optimization", "url": "https://arxiv.org/abs/2305.18290"},
-      "8": {"citation": "Zhao et al. (2023), SLiC-HF", "url": "https://arxiv.org/abs/2305.10425"},
-      "9": {"citation": "Yuan et al. (2023), RRHF", "url": "https://arxiv.org/abs/2304.05302"},
-      "12": {"citation": "Ethayarajh et al. (2024), KTO", "url": "https://arxiv.org/abs/2402.01306"},
-      "13": {"citation": "Hong et al. (2024), ORPO", "url": "https://arxiv.org/abs/2403.07691"},
-      "14": {"citation": "Meng, Xia & Chen (2024), SimPO", "url": "https://arxiv.org/abs/2405.14734"},
-      "15": {"citation": "Guo et al. (2024), Direct Language Model Alignment from Online AI Feedback", "url": "https://arxiv.org/abs/2402.04792"},
-      "16": {"citation": "Calandriello et al. (2024), Human Alignment through Online Preference Optimisation", "url": "https://arxiv.org/abs/2403.08635"},
-      "17": {"citation": "Yuan et al. (2024), Self-Rewarding Language Models", "url": "https://arxiv.org/abs/2401.10020"},
-      "18": {"citation": "Wu et al. (2024), Self-Play Preference Optimization", "url": "https://arxiv.org/abs/2405.00675"},
-      "22": {"citation": "Lightman et al. (2023), Let's Verify Step by Step", "url": "https://arxiv.org/abs/2305.20050"},
-      "23": {"citation": "Wang et al. (2023), Math-Shepherd", "url": "https://arxiv.org/abs/2312.08935"},
-      "24": {"citation": "Shao et al. (2024), DeepSeekMath", "url": "https://arxiv.org/abs/2402.03300"},
-      "25": {"citation": "Lambert et al. (2024/2025), Tülu 3", "url": "https://arxiv.org/abs/2411.15124"},
-      "26": {"citation": "DeepSeek-AI et al. (2025), DeepSeek-R1", "url": "https://arxiv.org/abs/2501.12948"},
-      "28": {"citation": "Yu et al. (2025), DAPO", "url": "https://arxiv.org/abs/2503.14476"},
-      "31": {"citation": "Zhang et al. (2026), Reinforcement-aware Knowledge Distillation for LLM Reasoning", "url": "https://arxiv.org/abs/2602.22495"},
-      "35": {"citation": "Yao et al. (2024), τ-bench", "url": "https://arxiv.org/abs/2406.12045"},
-      "36": {"citation": "Han et al. (2026), FutureWorld: A Live Reinforcement Learning Environment for Predictive Agents with Real-World Outcome Rewards", "url": "https://arxiv.org/abs/2604.26733"},
-      "37": {"citation": "Helff et al. (2026), LLMs Gaming Verifiers: RLVR can Lead to Reward Hacking", "url": "https://arxiv.org/abs/2604.15149"},
-      "40": {"citation": "Kimi Team (2026), Kimi K2.5: Visual Agentic Intelligence", "url": "https://arxiv.org/abs/2602.02276"},
-      "42": {"citation": "Sullivan & Koller (2026), On Language Drift during RLVR Post-Training", "url": "https://arxiv.org/abs/2610.02015"}
-    }
-  },
-  "timeline": {
-    "years": [2022, 2023, 2024, 2025, 2026],
-    "lanes": ["指令与偏好目标", "推理监督与策略优化", "蒸馏与能力迁移", "工具与环境交互", "目标失配与评估边界"],
-    "nodes": [
-      {"year": 2022, "lane": 0, "offset": 0, "color": "blue", "title": "SFT + PPO-RLHF", "detail": "示范、奖励模型与策略更新 [1]"},
-      {"year": 2023, "lane": 0, "offset": 0, "color": "blue", "title": "DPO / SLiC-HF / RRHF", "detail": "离线偏好目标并行扩展 [7–9]"},
-      {"year": 2024, "lane": 0, "offset": 0.28, "color": "blue", "title": "KTO / ORPO / SimPO", "detail": "非成对、联合式等目标 [12–14]"},
-      {"year": 2024, "lane": 0, "offset": -0.30, "color": "blue", "title": "在线反馈与自博弈", "detail": "刷新候选分布、迭代判别 [15–18]"},
-      {"year": 2023, "lane": 1, "offset": 0, "color": "teal", "title": "过程监督 · PRM", "detail": "步骤级反馈与验证 [22, 23]"},
-      {"year": 2024, "lane": 1, "offset": 0.28, "color": "teal", "title": "GRPO", "detail": "组内相对优势，省去 critic [24]"},
-      {"year": 2024, "lane": 1, "offset": -0.30, "color": "teal", "title": "PPO + RLVR（Tülu 3）", "detail": "程序化结果奖励 [25]"},
-      {"year": 2025, "lane": 1, "offset": 0, "color": "teal", "title": "DeepSeek-R1 / DAPO", "detail": "推理 RLVR 与长链训练配方 [26, 28]"},
-      {"year": 2025, "lane": 2, "offset": 0, "color": "purple", "title": "推理轨迹蒸馏", "detail": "强策略样本迁移至学生 [26]"},
-      {"year": 2026, "lane": 2, "offset": 0, "color": "purple", "title": "RL-aware 蒸馏", "detail": "在学生 rollout 上引入教师信号 [31]"},
-      {"year": 2024, "lane": 3, "offset": 0, "color": "teal", "title": "多轮工具交互", "detail": "任务环境与交互评价（τ-bench）[35]"},
-      {"year": 2026, "lane": 3, "offset": -0.30, "color": "teal", "title": "延迟真实结果奖励", "detail": "预测轨迹待现实事件回填 [36]"},
-      {"year": 2026, "lane": 3, "offset": 0.28, "color": "teal", "title": "Kimi K2.5 · PARL", "detail": "Agent Swarm 与多模态奖励组合 [40]"},
-      {"year": 2022, "lane": 4, "offset": 0, "color": "gray", "title": "奖励过度优化", "detail": "代理奖励可偏离真实目标 [6]"},
-      {"year": 2026, "lane": 4, "offset": 0, "color": "gray", "title": "语言漂移 / 验证器投机", "detail": "边界研究与失败模式 [37, 42]"}
-    ],
-    "edges": [
-      {"from": [2022, 0, 0], "to": [2024, 1, 0.28], "label": "PPO 的 critic-free 组相对变体", "label_xy": [4.68, 6.60]},
-      {"from": [2023, 1, 0], "to": [2024, 1, 0.28], "label": "过程信号可与组策略更新组合", "label_xy": [7.48, 6.60]},
-      {"from": [2024, 1, 0.28], "to": [2025, 1, 0], "label": "面向推理的训练配方扩展", "label_xy": [10.76, 6.60]},
-      {"from": [2025, 1, 0], "to": [2025, 2, 0], "label": "RL 轨迹转为学生监督", "label_xy": [11.05, 4.78]},
-      {"from": [2024, 3, 0], "to": [2026, 3, -0.30], "label": "反馈从任务成功走向延迟真实结果", "label_xy": [12.30, 3.08]},
-      {"from": [2022, 4, 0], "to": [2026, 4, 0], "label": "对代理目标失配的持续检验", "label_xy": [9.18, 1.60], "style": "dashed"}
-    ]
-  },
-  "loops": {
-    "columns": [
-      {
-        "name": "SFT",
-        "subtitle": "固定示范 · 监督更新",
-        "color": "blue",
-        "sources": ["1"],
-        "steps": [
-          {"kind": "data", "text": "示范样本\n(prompt, target)"},
-          {"kind": "process", "text": "只对 target + EOS\n计算词元损失"},
-          {"kind": "loss", "text": "交叉熵 / NLL"},
-          {"kind": "update", "text": "更新策略 πθ"}
-        ],
-        "loop": false
-      },
-      {
-        "name": "离线 DPO",
-        "subtitle": "固定偏好对 · 不在线采样",
-        "color": "blue",
-        "sources": ["7"],
-        "steps": [
-          {"kind": "data", "text": "静态偏好对\n(prompt, chosen, rejected)"},
-          {"kind": "process", "text": "策略与固定 reference\n分别计算序列 log p"},
-          {"kind": "loss", "text": "DPO 成对偏好损失"},
-          {"kind": "update", "text": "更新策略 πθ"}
-        ],
-        "loop": false
-      },
-      {
-        "name": "在线 DPO",
-        "subtitle": "当前策略采样 · 反馈后再训练",
-        "color": "purple",
-        "sources": ["15", "16"],
-        "steps": [
-          {"kind": "data", "text": "提示 x"},
-          {"kind": "policy", "text": "当前策略生成 K 个候选"},
-          {"kind": "judge", "text": "人类 / AI judge / 任务评价器"},
-          {"kind": "process", "text": "构成 chosen / rejected\n固定 reference 计算 log p"},
-          {"kind": "loss", "text": "DPO 成对偏好损失"},
-          {"kind": "update", "text": "更新 πθ，再采样"}
-        ],
-        "loop": true
-      },
-      {
-        "name": "GRPO",
-        "subtitle": "组采样 · 在线策略优化",
-        "color": "teal",
-        "sources": ["24"],
-        "steps": [
-          {"kind": "data", "text": "提示 x"},
-          {"kind": "policy", "text": "旧策略 πold 生成一组回答"},
-          {"kind": "judge", "text": "Verifier / reward → 组内优势"},
-          {"kind": "process", "text": "当前 πθ 与固定 πref\n分别提供 log p"},
-          {"kind": "loss", "text": "裁剪策略目标 + KL 项"},
-          {"kind": "update", "text": "更新 πθ，再生成新组"}
-        ],
-        "loop": true,
-        "legend": ["πold：生成 rollout 的行为策略", "πref：KL 锚点；与 πold 不同"]
-      }
-    ]
-  },
   "implementation": {
     "common": [
-      {"kind": "data", "title": "数据行提示", "detail": "row[\"prompt\"] · src/data.py", "source": "src/data.py::row['prompt']"},
-      {"kind": "policy", "title": "候选生成", "detail": "generate_candidates · src/modeling.py\ngroup_size=4 · completion 保留 EOS", "source": "src/modeling.py::generate_candidates"},
-      {"kind": "mask", "title": "response_mask", "detail": "src/modeling.py::_feature：prompt=0，completion含EOS\nattention_mask 排除 padding", "source": "src/modeling.py::_feature / collate_features"}
+      {
+        "kind": "data",
+        "title": "数据行提示",
+        "detail": "row[\"prompt\"] · src/data.py",
+        "source": "src/data.py::row['prompt']"
+      },
+      {
+        "kind": "policy",
+        "title": "候选生成",
+        "detail": "generate_candidates · src/modeling.py\ngroup_size=4 · completion 保留 EOS",
+        "source": "src/modeling.py::generate_candidates"
+      },
+      {
+        "kind": "mask",
+        "title": "response_mask",
+        "detail": "src/modeling.py::_feature：prompt=0，completion含EOS\nattention_mask 排除 padding",
+        "source": "src/modeling.py::_feature / collate_features"
+      }
     ],
     "reward": {
       "title": "可验证反馈",
@@ -132,14 +26,39 @@
       "source": "src/train.py::_reward · src/rewards.py::score_response / format_only_reward"
     },
     "logps": [
-      {"title": "old_token_logps", "detail": "_make_grpo_rollout_batch 缓存\nGRPO ratio 分母；无梯度", "color": "gray"},
-      {"title": "reference log p", "detail": "_reference_tokens · 固定 SFT\nKL 锚点 / DPO 对照", "color": "purple"},
-      {"title": "current_token_logps", "detail": "当前策略概率\n唯一梯度路径", "color": "blue"}
+      {
+        "title": "old_token_logps",
+        "detail": "_make_grpo_rollout_batch 缓存\nGRPO ratio 分母；无梯度",
+        "color": "gray"
+      },
+      {
+        "title": "reference log p",
+        "detail": "_reference_tokens · 固定 SFT\nKL 锚点 / DPO 对照",
+        "color": "purple"
+      },
+      {
+        "title": "current_token_logps",
+        "detail": "当前策略概率\n唯一梯度路径",
+        "color": "blue"
+      }
     ],
     "objectives": [
-      {"title": "DPO / OnlineDPO", "detail": "DPO: preference_features；OnlineDPO: generated_feature\nchosen/rejected 的 current / 固定 reference sequence_logps 求和 → dpo_loss\nOnlineDPO：4 个候选按 reward 取最高 / 最低；平局跳过 → 更新 πθ", "color": "blue"},
-      {"title": "GRPO", "detail": "group_advantages：每提示 4 个回答，组内标准化（eps=1e-4）\ngrpo_loss：clipped ratio + current/reference KL；response 均值\n_update_grpo_groups：2 个 update epochs → 更新 πθ", "color": "teal"}
+      {
+        "title": "DPO / OnlineDPO",
+        "detail": "DPO: preference_features；OnlineDPO: generated_feature\nchosen/rejected 的 current / 固定 reference sequence_logps 求和 → dpo_loss\nOnlineDPO：4 个候选按 reward 取最高 / 最低；平局跳过 → 更新 πθ",
+        "color": "blue"
+      },
+      {
+        "title": "GRPO",
+        "detail": "group_advantages：每提示 4 个回答，组内标准化（eps=1e-4）\ngrpo_loss：clipped ratio + current/reference KL；response 均值\n_update_grpo_groups：2 个 update epochs → 更新 πθ",
+        "color": "teal"
+      }
     ],
-    "sources": ["src/modeling.py::_feature / generated_feature / generate_candidates / sequence_logps / dpo_loss / group_advantages / grpo_loss", "src/train.py::_reward / _rollout_group / _make_grpo_rollout_batch / _update_grpo_groups", "src/rewards.py::score_response / format_only_reward", "configs/experiment.json::objectives.grpo"]
+    "sources": [
+      "src/modeling.py::_feature / generated_feature / generate_candidates / sequence_logps / dpo_loss / group_advantages / grpo_loss",
+      "src/train.py::_reward / _rollout_group / _make_grpo_rollout_batch / _update_grpo_groups",
+      "src/rewards.py::score_response / format_only_reward",
+      "configs/experiment.json::objectives.grpo"
+    ]
   }
 }

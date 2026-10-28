@@ -1,17 +1,18 @@
-# 大语言模型后训练技术演进
+# 大语言模型后训练代码分析与实验
 
 项目资料与实验代码仓库：<https://github.com/stq1234/llm-post-training-evolution>
 
-本仓库包含后训练方法综述、开源实现源码分析、可复现的合成中文证据问答数据、PyTorch LoRA 训练与评估代码，以及面向课程提交的报告材料。实验实现统一使用 `Qwen/Qwen2.5-0.5B-Instruct`，固定 revision `7ae557604adf67be50417f59c2c2f167def9a775`。
+本作业分支完整链接：[https://github.com/stq1234/llm-post-training-evolution/tree/main](https://github.com/stq1234/llm-post-training-evolution/tree/main)
+
+本仓库归档后训练代码分析与可复现实验：包括合成中文证据问答数据、PyTorch LoRA 训练/评估、结果分析和本作业实验报告。综述与 DPO 思考题各自保存在课程根目录下的独立作业文件夹，不在本仓库复制。实验实现统一使用 `Qwen/Qwen2.5-0.5B-Instruct`，固定 revision `7ae557604adf67be50417f59c2c2f167def9a775`。
 
 ## 目录
 
 | 路径 | 内容 |
 |---|---|
-| `reports/README.md` | 三个 HW5 Piazza 帖子的标题、分类与正文入口 |
-| `reports/01_综述/报告.md` | 2023—2026 年后训练技术综述 |
-| `reports/02_代码分析与实验/报告.md` | 源码分析与实验报告；仅整理实际训练和评估产物，不预填指标 |
-| `reports/03_DPO思考题/回答.md` | 两道 DPO 与在线强化学习思考题（独立本地文件夹） |
+| `实验报告.md` | 本仓库对应的源码分析与真实实验报告 |
+| `rendered/` | 实验报告本地预览与 Piazza HTML、纯文本及 manifest |
+| `docs/SUBMISSION.md` | 三个 HW5 作业的目录分离、Piazza 状态与链接记录 |
 | `research/code_analysis.md` | 8 个公开代码仓库、10 个版本快照的实现分析 |
 | `research/code_sources.json` | 源码仓库、提交和调用路径索引 |
 | `research/code_excerpts/` | 可核对的实现证据摘录 |
@@ -25,10 +26,10 @@
 | `src/analyze_results.py` | 从已完成日志与预测生成汇总、图表和结果报告 |
 | `src/rewards.py` | 结构、答案与证据奖励函数 |
 | `src/download_model.py` | 固定 revision 的模型缓存下载器 |
-| `src/plot_concepts.py` | 方法谱系和训练流程图生成器 |
+| `src/plot_concepts.py` | 实验训练实现映射图生成器 |
 | `src/render_reports.py` | Markdown 报告转 HTML 预览和清单 |
 | `tests/` | 数据、奖励与优化目标的单元测试 |
-| `figures/` | 已生成的时间线、训练回路和实现映射图（SVG、PNG、PDF） |
+| `figures/` | 实验实现映射图（SVG、PNG、PDF） |
 | `results/` | 训练日志、adapter、逐样本 rollout 和评估输出 |
 
 实验结果只从实际生成的 `run_summary.json` 与 `evaluation_summary.json` 汇总；严格主指标按原始输出重新评分。已完成结果的来源和口径见 [`research/experiment_results.md`](research/experiment_results.md) 及 `results/analysis/summary.json`。
@@ -73,7 +74,7 @@ results/eval/base/<split>/                      # 基础模型；不加 seed
 results/eval/<method>_seed<17|29>/<split>/       # 微调分支的逐样本预测和摘要
 ```
 
-每个训练目录保存 `run_config.json`、`step_log.jsonl` 和 `run_summary.json`；在线方法还保存 `rollouts.jsonl`。评估目录保存 `predictions.jsonl` 与 `evaluation_summary.json`。汇总多 seed 结果时，先分别保留每个 seed 的指标，再报告跨 seed 均值和波动；不要把所有样本合并后当作独立训练重复。完整实验正文应在训练和三类测试评估完成后更新 `reports/02_代码分析与实验/报告.md`，并仅报告这些实际产物可复算的结果。
+每个训练目录保存 `run_config.json`、`step_log.jsonl` 和 `run_summary.json`；在线方法还保存 `rollouts.jsonl`。评估目录保存 `predictions.jsonl` 与 `evaluation_summary.json`。汇总多 seed 结果时，先分别保留每个 seed 的指标，再报告跨 seed 均值和波动；不要把所有样本合并后当作独立训练重复。已完成的实验正文位于 `实验报告.md`；本地作业目录和 Piazza 状态见 [`docs/SUBMISSION.md`](docs/SUBMISSION.md)。
 
 ### 已完成结果概览
 
@@ -92,6 +93,10 @@ results/eval/<method>_seed<17|29>/<split>/       # 微调分支的逐样本预�
 本合成任务与当前训练预算下，DPO 相对同 seed SFT 的联合正确率差在三个测试划分均为负（均值分别为 −13.8、−4.4、−16.2 个百分点）；这只支持对本实验设置的结论。OnlineDPO 与完整奖励 GRPO 的三项均值高于格式-only GRPO；按同 seed 配对，full GRPO 相对 format-only 的差为 +7.2、+3.1、+9.7 个百分点。SFT-256 的单 seed 分数较高，但它不是双 seed 结果，不能据此估计跨种子稳定性。完整指标、失败分解、资源记录和错误案例见 [`research/experiment_results.md`](research/experiment_results.md)。
 
 基线的严格格式正确率在三个测试划分均为 0；因此它的严格联合正确率为零不能单独说明答案内容全错。验证集诊断中，基线宽松答案正确率为 0.438，91/96 条原始输出带外围 Markdown 代码围栏。
+
+## GitHub 与 Piazza 提交状态
+
+实验报告和实验归档已完成。此前的代码实验归档提交 `017c182eea06057ca69a49ab4b2cbb862418a32c` 已推送至 `main`。归档计划为：5.2 保留 `main`；独立的 5.1 与 5.3 本地 Git 工作目录分别对应同一用户指定远程上的 `survey`、`dpo-discussion` 分支，这两个分支尚未推送。综述帖原帖已发布，但由于用户要求扩写综述，Piazza post 168 仍待更新；代码分析与实验帖和 DPO 思考题帖尚未发布。三个作业均归属 `hw5`，每个帖子实际勾选全部六个标签：`hw1`、`hw2`、`hw3`、`hw4`、`hw5`、`other`。状态及链接见 [`docs/SUBMISSION.md`](docs/SUBMISSION.md)。
 
 ## 环境安装
 
@@ -137,7 +142,7 @@ python -c "import torch, transformers, datasets, peft, accelerate, markdown, bs4
 .\.venv\Scripts\python.exe -m src.plot_concepts
 ```
 
-下载脚本固定模型 ID 与 revision，只取配置、tokenizer 和 `model.safetensors` 必要文件；数据命令按固定 seed 重建 `data/`；图表命令重建 `figures/` 中的 SVG、PNG、PDF。单元测试不启动训练。
+下载脚本固定模型 ID 与 revision，只取配置、tokenizer 和 `model.safetensors` 必要文件；数据命令按固定 seed 重建 `data/`；图表命令只重建实验实现映射图（SVG、PNG、PDF）。单元测试不启动训练。
 
 ### 锁定训练与评估流水线
 
@@ -252,14 +257,14 @@ if (Test-Path "results/sft_long_seed17/adapter") {
 
 ### 渲染报告预览
 
-渲染器生成 HTML、纯文本和 `.manifest.json`，不会改写报告 Markdown。不传 `--image-map` 时，HTML 使用相对路径引用仓库内图片，适合本地预览。要准备发布版本，必须传入从 Piazza 图片上传流程取得的 URL 映射 `--image-map`。若 map 尚缺少某些上传 URL，可同时传入 `--draft-missing-images`，仅为未发布草稿插入显式占位；不能将此草稿用于最终发布。
+渲染器生成 HTML、纯文本和 `.manifest.json`，不会改写报告 Markdown。不传 `--image-map` 时，HTML 使用相对路径引用仓库内图片，适合本地预览。要准备发布版本，必须传入从 Piazza 图片上传流程取得的 URL 映射 `--image-map`。若 map 尚缺少某些上传 URL，可同时传入 `--draft-missing-images`，仅为未发布草稿插入显式占位；不能将此草稿用于最终发布。`--part-limit 200000` 保留完整报告为单个 HTML；低于输出大小的阈值会额外生成章节对齐的 `.part-NN.html` 与 `.part-NN.txt`，清单会记录分段状态。
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.render_reports reports/01_综述/报告.md --output reports/html/01_survey.html
-.\.venv\Scripts\python.exe -m src.render_reports reports/03_DPO思考题/回答.md --output reports/html/03_dpo_questions.html
+.\.venv\Scripts\python.exe -m src.render_reports 实验报告.md --output rendered/实验报告.html --part-limit 200000
+.\.venv\Scripts\python.exe -m src.render_reports 实验报告.md --output rendered/piazza.html --image-map docs/piazza_image_map.json --part-limit 200000
 ```
 
-实验报告完成后，以 `reports/02_代码分析与实验/报告.md` 为渲染源，输出到 `reports/html/` 中的实验报告 HTML 文件。最终报告 HTML 由主线在内容定稿后重渲染。`--draft-missing-images` 仅在提供 `--image-map` 时适用于未发布草稿，不能用于最终发布 HTML。Piazza 发帖、图片上传和最终保存核验遵循 [`docs/PIAZZA_WORKFLOW.md`](docs/PIAZZA_WORKFLOW.md)；README 命令不会发布内容。
+本地预览输出到 `rendered/实验报告.html`，带 Piazza 图片 URL 的版本输出到 `rendered/piazza.html`；两种版本各自附带 `.txt` 和 `.manifest.json`。修改 `实验报告.md` 后重渲染这两个产物。`--draft-missing-images` 仅在提供 `--image-map` 时适用于未发布草稿，不能用于最终发布 HTML。README 命令只生成本地文件，不会发布 Piazza 帖子。
 
 ## 第三方源码参考与本仓库边界
 

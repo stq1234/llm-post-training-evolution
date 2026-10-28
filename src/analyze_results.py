@@ -1618,7 +1618,7 @@ def _write_summary_report(
         "",
         f"已按预先固定规则选取 {error_case_count} 个代表性错误，完整提示、参考答案、模型输出和评分保存在 `results/analysis/error_cases.jsonl`。每种方法、每类错误至多选 1 例；优先种子 17，再 29，再按 `test_id`、`test_ood`、`test_counterfactual` 与样本 ID 排序。该规则只用于展示，不用于模型选择。",
         "",
-        "主图源文件为 `figures/fig1_test_joint_accuracy.png`（三测试划分联合正确率）、`figures/fig2_task_error_analysis.png`（任务分层与错误分解）、`figures/fig3_training_resources_curves.png`（阶段资源、loss 与 rollout 奖励曲线）和 `figures/dpo_logp_margin.png`（DPO 相对参考 log-prob 与隐式 margin）；对应 PDF、CSV/JSON 源数据和复用分析代码保存在工程目录。报告整合时从报告所在目录链接到 `../../figures/`。",
+        "主图源文件为 `figures/fig1_test_joint_accuracy.png`（三测试划分联合正确率）、`figures/fig2_task_error_analysis.png`（任务分层与错误分解）、`figures/fig3_training_resources_curves.png`（阶段资源、loss 与 rollout 奖励曲线）和 `figures/dpo_logp_margin.png`（DPO 相对参考 log-prob 与隐式 margin）；对应 PDF、CSV/JSON 源数据和复用分析代码保存在工程目录。根目录实验报告以相对路径 `figures/` 引用图片。",
         "",
     ])
     if missing or incomplete_coverage or missing_training_summaries:

@@ -1,8 +1,10 @@
 # 实验报告非结果章节独立审读
 
+> 历史审读记录：本检查发生在结果章节完成前。以下“未读取结果区”和逐行位置反映当时版本，行号不用于定位当前报告。
+
 ## 范围与结论
 
-只读检查了 `reports/02_experiment.md` 的方法、数据、设置、讨论边界和参考文献部分（未读取结果区；该稿当前未有 Results 章节）、`src/train.py`、`src/modeling.py`、`docs/LOCAL_METHOD_REVIEW.md` 及 `configs/experiment.json`。未读取 `results/` 或 `tests/`，未运行训练、评估、测试或任何 GPU 工作；未改报告、源码或配置。
+只读检查了当前根目录 `实验报告.md` 的方法、数据、设置、讨论边界和参考文献部分（当时未读取结果区；当时稿件尚无 Results 章节）、`src/train.py`、`src/modeling.py`、`docs/LOCAL_METHOD_REVIEW.md` 及 `configs/experiment.json`。未读取 `results/` 或 `tests/`，未运行训练、评估、测试或任何 GPU 工作；未改报告、源码或配置。
 
 总体结论：协议参数和本地 DPO/Online DPO/GRPO 的主要计算路径表述大体对应配置与实现，特别是固定 SFT reference、old/reference 概率分工、GRPO 组总体标准差、逐回答损失归约、两次复用 rollout 及截断处理均有明确说明。未发现需要停止正在运行实验的代码—方法严重缺陷。但提交前应修正一处确定的预处理事实错误，并澄清 SFT 损失的实际归约，否则报告公式会暗示不同的长度加权目标；另有两项理论/复现表述应收紧。
 
@@ -10,13 +12,13 @@
 
 ### P2：把右侧 padding 写成左侧 padding
 
-- 报告位置：`reports/02_experiment.md:282`，“训练序列采用左侧 padding 对齐批次”。
+- 历史报告位置：`实验报告.md:282`，“训练序列采用左侧 padding 对齐批次”。
 - 实现证据：`src/modeling.py:124–140` 的 `collate_features` 在 `input_ids`、`labels` 和 `response_mask` 末尾追加 padding，并构造 `attention_mask=[1]*n+[0]*padding`，这是右侧 padding。`docs/LOCAL_METHOD_REVIEW.md` 的 SFT mask 段也明确记为右 padding。
 - 建议：将“左侧”改为“右侧”。提示/填充不计入 response mask 的其他说明与代码相符，无需改动。
 
 ### P2：SFT 展示的 token 求和式未说明实际按样本长度平均
 
-- 报告位置：`reports/02_experiment.md:38–44` 将 SFT 写为 `-∑_t log πθ(y_t|...)`；`286` 及表 5 第 `346–347` 行称 completion-only token NLL，但未说明本地样本归约。
+- 历史报告位置：`实验报告.md:38–44` 将 SFT 写为 `-∑_t log πθ(y_t|...)`；`286` 及表 5 第 `346–347` 行称 completion-only token NLL，但未说明本地样本归约。
 - 实现证据：`src/train.py:294–299` 使用 `F.cross_entropy(..., ignore_index=-100)` 的默认 mean reduction。配置 batch size 为 1，所以每个 microbatch 的 loss 是该条回答有效 token 上的均值；梯度累积再将各 microbatch loss 等权相加并除以 4。实际每步目标是四条有放回抽取回答的“逐回答 token 均值”的平均，而不是每条回答 token 负对数似然之和，也不是将四条回答所有 token 合并后统一求均值。回答长短因而不会按有效 token 数线性增权。
 - 建议：保留式 (1) 作为序列负对数似然的定义时，应紧接着区分训练 reduction，并给出实际目标：
   `L_SFT = E_(x,y)[(1/T_y) Σ_t -log πθ(y_t | x,y_<t)]`，再注明 batch size 1 下梯度累积对每条样本均值等权平均。这样和代码完全对应，不需改实现或协议。
@@ -25,7 +27,7 @@
 
 ### P2/P3：DPO 的偏好模型假设未在方法中交代
 
-- 报告位置：`reports/02_experiment.md:66–75` 和 `288–295` 给出正确的 reference-adjusted logistic DPO 目标，也指出偏好对为规则合成、不是人类标注；但没有说明理论目标将偏好标签建模为 latent reward 差的 Bradley–Terry/logistic 选择概率，并以 reference-relative KL-regularized reward-optimal policy 参数化。
+- 历史报告位置：`实验报告.md:66–75` 和 `288–295` 给出正确的 reference-adjusted logistic DPO 目标，也指出偏好对为规则合成、不是人类标注；但没有说明理论目标将偏好标签建模为 latent reward 差的 Bradley–Terry/logistic 选择概率，并以 reference-relative KL-regularized reward-optimal policy 参数化。
 - 建议：在首个 DPO 公式前用一两句列明这些是 DPO 推导的建模前提，而非本实验已验证的事实；补充就近的 `[9]` 引用。继而说明本研究确定性规则标签只是这些偏好对目标的操作化代理，不能据此声称满足人类偏好模型。公式不需改写。
 
 ### P2/P3：rollout 日志能核查文本样本，但不能精确重放采样 token 序列

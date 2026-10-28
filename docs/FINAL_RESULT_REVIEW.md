@@ -2,7 +2,7 @@
 
 ## 范围
 
-对照当前版本 `reports/02_代码分析与实验/报告.md` 的摘要、表 6–11、案例、讨论与结论，以及 `results/analysis/summary.json`、相关 CSV、`results/analysis/error_cases.jsonl` 和 11 个原始 `run_summary.json`。只读检查并查看了报告引用的图文件；未浏览网页、运行代码/测试或使用 GPU，也未更改报告、代码或数据。本结论对应本次核验时的工作区版本。
+对照当前版本 `实验报告.md` 的摘要、表 6–11、案例、讨论与结论，以及 `results/analysis/summary.json`、相关 CSV、`results/analysis/error_cases.jsonl` 和 11 个原始 `run_summary.json`。只读检查并查看了报告引用的图文件；未浏览网页、运行代码/测试或使用 GPU，也未更改报告、代码或数据。本结论对应本次核验时的工作区版本。
 
 ## 结论
 

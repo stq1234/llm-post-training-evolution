@@ -223,7 +223,7 @@ $$</p>
 <p>离线 DPO 的 batch 从 chosen/rejected 字段构造两条配对特征，分别求当前策略及固定 SFT reference 的响应序列 log-prob 总和，再计算概率比差和 logistic loss。在线 DPO 从当前 policy 生成同提示四条候选，先运行奖励检查；非并列时从最高分与最低分候选中采样成对回答，之后复用同一 DPO 概率比目标。GRPO 对每个 prompt id 分组候选，在同一模型完成采样后以无 dropout 的 policy 前向重算 old-token log-prob，再单独以 reference adapter 计算固定参考概率；奖励与响应 mask 一并保留，更新时重算 current log-prob，结合 clipped ratio 与采样 KL 项形成逐回答损失。该本地 GRPO 选用 reference KL 是配置选择；它不改变“组内相对奖励提供 critic-free baseline”这一结构，也不代表所有 GRPO 框架都有该项。[11]</p>
 <p>图 1 展示本地训练中提示与候选如何通过 response mask、奖励和不同策略概率进入各自目标函数；它概括本项目的接口关系，不复述通用框架内部路径。</p>
 <p><strong>图 1  本地训练目标到数据、掩码、策略概率与更新接口的映射</strong></p>
-<p><img alt="本地训练实现从训练语义到数据、掩码、策略概率及更新接口的映射" src="https://piazza.com/redirect/s3?bucket=uploads&amp;prefix=paste%2Fmtuyd5n8s3ea8%2F203d970fcbc1ec8674a7d3a83ed4a98e669a3e4db888308fe302be62e3efc4be%2Fimplementation.png" style="max-width:100%;height:auto;"/></p>
+<p><img alt="本地训练实现从训练语义到数据、掩码、策略概率及更新接口的映射" src="../figures/implementation.png" style="max-width:100%;height:auto;"/></p>
 <p><em>图 1  本地实现中 prompt、rollout、response mask、奖励、old/reference/current log-prob 与 SFT/DPO/GRPO 更新之间的数据流。函数名对应本项目实现，不表示八个比较框架使用相同函数名或代码路径。</em></p>
 <p>具体代码把共同模型加载、tokenizer/chat template、LoRA 注入、完成区间掩码和序列 log-prob 封装为共享组件；train loop 分别调用 SFT token CE、DPO pair loss、在线候选重排或 GRPO reward grouping。响应概率计算排除 prompt 与 padding、保留 EOS；GRPO 中按每条回答的有效长度平均，再在回答和 micro-batch 维度聚合。该局部代码路径适合把抽象目标接入一个可检查的小型训练回路，但不等同于对 TRL/OpenRLHF/verl/slime 的复现。[11]</p>
 <h2>3 任务定义与合成数据</h2>
@@ -381,7 +381,7 @@ $$</p>
 <p>$$
 \operatorname{Attn}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^{\mathsf T}}{\sqrt{d_h}}+M\right)V.
 $$</p>
-<p>该配置有 14 个 query heads 与 2 个 key/value heads，每头维度 d<sub>h</sub>=64，即平均每个 KV head 供 7 个 query heads 共享。预归一化残差块可写为</p>
+<p>该配置有 14 个 query heads 与 2 个 key/value heads，每头维度 d<sub>h</sub>=64，即每个 KV head 供 7 个 query heads 共享。具体而言，隐藏状态的 query 投影按最后一维拆为 14 组，key/value 投影各拆为 2 组；每个 query head 与所属组共享的 key/value 计算上式，但仍保留自己的注意力权重。14 个头的输出在特征维拼接，恢复为 896 维，再经过输出投影送入残差分支。共享的是 key/value 表示，不是把同组 query 的注意力分布强制设为相同；这使模型能够在减少 KV 存储和访存的同时保留多个查询视角。预归一化残差块可写为</p>
 <p>$$
 \begin{aligned}
 \widetilde H^{(\ell)}&amp;=H^{(\ell-1)}+\operatorname{GQA}\bigl(\operatorname{RMSNorm}(H^{(\ell-1)})\bigr),\\
@@ -564,7 +564,8 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<p><img alt="三个测试划分上的严格联合正确率比较" src="https://piazza.com/redirect/s3?bucket=uploads&amp;prefix=paste%2Fmtuyd5n8s3ea8%2F38dfb4cb33185aa3fe321c2bb3bb8d7e52e57d1f4870cd80f65a7d74dc84594c%2Ffig1_test_joint_accuracy.png" style="max-width:100%;height:auto;"/></p>
+<p>图 2 将表 6 的结果按测试划分并列呈现，便于同时比较方法均值及两次运行的波动。高预算 SFT 对照单独标识为一次运行；它与主实验的差距需要结合监督预算理解，不能仅凭柱高归因于优化器。</p>
+<p><img alt="三个测试划分上的严格联合正确率比较" src="../figures/fig1_test_joint_accuracy.png" style="max-width:100%;height:auto;"/></p>
 <p><em>图 2  各训练方法在同分布、词汇/措辞留出和反事实测试上的严格联合正确率。双种子方法显示均值与种子范围；基线及 SFT-256 为单次运行。</em></p>
 <p>同分布测试中，SFT-16 的格式、答案和证据集合精确匹配率分别为 0.994、0.713 和 0.409，联合正确率为 0.363，说明几乎完全的格式符合并不能保证答案与证据同时正确。DPO 的格式正确率降至 0.928，证据集合精确匹配率降至 0.244，联合正确率为 0.225。其与同 seed SFT 的联合正确差在三类测试分别为 −0.138、−0.044、−0.162；每个划分的两次配对差均为负。此退化只适用于本实验的规则生成偏好数据和训练配方。</p>
 <p>在线 DPO 与完整奖励 GRPO 在三类测试中的联合正确率都高于 SFT-16 均值。完整奖励 GRPO 相对格式奖励 GRPO 的差分别为 0.072、0.031、0.097，两个 seed 的配对差在三个划分上均为正。两种 GRPO 的严格格式正确率均为 1.000；同分布测试中，完整奖励组的答案正确率和证据集合精确匹配率为 0.791、0.431，格式奖励组为 0.675、0.350。差异因此同时涉及答案及证据监督，而非格式约束的改善。在线 DPO 的对应同分布答案与证据集合精确匹配率为 0.797、0.369。在词汇/措辞留出集上，完整奖励 GRPO 的答案与证据集合精确匹配率为 0.606、0.397，格式奖励组为 0.541、0.356；反事实集上的对应值为 0.481、0.519 与 0.388、0.431。两类划分都呈现答案及证据组件同时较高，但其严格联合分数仍受两者必须同时正确这一条件限制。</p>
@@ -634,7 +635,8 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<p><img alt="同分布测试的任务分层与错误类型" src="https://piazza.com/redirect/s3?bucket=uploads&amp;prefix=paste%2Fmtuyd5n8s3ea8%2F11acde289b7a62c69f6993f6a63309644ee632d874eaefe211b2e5e79bd4e319%2Ffig2_task_error_analysis.png" style="max-width:100%;height:auto;"/></p>
+<p>图 3 将任务分层与错误分解放在一起：左侧观察哪些任务贡献总体得分，右侧区分格式错误、答案错误及证据不匹配，避免把所有失败解释为同一种推理错误。</p>
+<p><img alt="同分布测试的任务分层与错误类型" src="../figures/fig2_task_error_analysis.png" style="max-width:100%;height:auto;"/></p>
 <p><em>图 3  任务分层的联合正确率和失败类型分解。每类任务使用相同的严格评分口径；双种子方法显示均值，单种子条件单独标出。</em></p>
 <p>表 7 揭示了总体分数掩盖的差异：SFT-16、在线 DPO 和两种 GRPO 都在不可回答题上达到 1.000，但这些方法在两步关系/加法任务上的联合正确率接近零。DPO 在不可回答题上仅为 0.163，表明其已知的规则负例没有转化为稳定的拒答行为。SFT-256 单次运行在四类任务上均有较高得分，但不能据此推出高预算 SFT 对其他训练种子具有同样效果。</p>
 <p>错误案例按预定规则从 21 条记录中选取：每种方法、每类错误至多一例，并优先按 seed、测试划分和样本编号排序。它们用于解释错误类型，不估计各错误发生的频率。</p>
@@ -767,7 +769,8 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<p><img alt="DPO 相对参考策略的序列 log-prob 与隐式 margin 变化" src="https://piazza.com/redirect/s3?bucket=uploads&amp;prefix=paste%2Fmtuyd5n8s3ea8%2F1b71a232809f087d9e63efe5e1a9790bd49342da6cce713738d0b9b178a9cf1b%2Fdpo_logp_margin.png" style="max-width:100%;height:auto;"/></p>
+<p>图 4 展开表 10 的完整训练轨迹，用于判断偏好间隔的增长来自 chosen 项上升、rejected 项下降，还是两者共同变化。该图反映训练样本上的目标行为，与独立测试集上的质量变化分别考察。</p>
+<p><img alt="DPO 相对参考策略的序列 log-prob 与隐式 margin 变化" src="../figures/dpo_logp_margin.png" style="max-width:100%;height:auto;"/></p>
 <p><em>图 4  DPO 两个种子的 chosen/rejected 相对参考序列 log-prob 及偏好 margin 随更新步数的变化。</em></p>
 <p>两个 seed 的隐式 margin 都从接近零升至较大正值；rejected 相对 reference 的 log-prob 下降更多，chosen 项本身也有所下降。这与模型逐步拉大 preference 对差异的训练目标相符，却不足以证明该变化导致三个测试集上的 DPO 退化。日志轨迹是训练机制的观察线索，不能替代对偏好数据、目标尺度和初始化的独立消融。</p>
 <h3>6.4 训练资源与截断情况</h3>
@@ -836,7 +839,8 @@ $$</p>
 </tbody>
 </table>
 <p>在线 DPO 每 seed 消耗 128 个 rollout prompt 组、最多 512 个候选，但两次运行都因并列奖励跳过一部分组，实际各进行 52 次更新，得到 75—81 个可用偏好对。完整奖励 GRPO 的 128 个 prompt 组中平均有 83.5 组奖励不全相同；格式奖励 GRPO 平均只有 19.5 组提供非并列奖励，另有 108.5 组并列。后者较稀疏的组内差异与其较低的任务分数相符，但奖励信号差异与随机训练波动并未通过更大种子数分离。生成上限 64 token 下，在线 DPO rollouts 有 1/1,024 条 completion 被标记截断；完整奖励和格式奖励 GRPO 均为 0/1,024。最终测试生成中，基线出现 3/480 条截断，DPO 的 seed 29 出现 5/480 条；其余已训练方法未见截断。</p>
-<p><img alt="训练阶段耗时、峰值显存及各训练目标的 loss 与 rollout reward 曲线" src="https://piazza.com/redirect/s3?bucket=uploads&amp;prefix=paste%2Fmtuyd5n8s3ea8%2Fb398e9eb12780bc9d2747c75251f850337b1e474f0eaf93cfc4650724d636633%2Ffig3_training_resources_curves.png" style="max-width:100%;height:auto;"/></p>
+<p>图 5 同时展示阶段开销与训练动态。资源面板用于说明这一配方在本机上的可运行规模；loss 和 rollout reward 面板用于观察各方法内部的变化。不同目标的数值尺度不同，不能依据某条曲线更低就判断对应方法更好。</p>
+<p><img alt="训练阶段耗时、峰值显存及各训练目标的 loss 与 rollout reward 曲线" src="../figures/fig3_training_resources_curves.png" style="max-width:100%;height:auto;"/></p>
 <p><em>图 5  训练阶段耗时、峰值显存、各目标的训练 loss 与 rollout reward。不同方法的 loss 和 reward 对应不同目标及量纲，曲线数值不作跨方法大小比较；运行时间可能包含与训练共用设备的图形负载，不视为独占硬件的速度基准。</em></p>
 <p>本地使用 6 GiB（6144 MiB）NVIDIA RTX 3060 Laptop；各阶段峰值 allocated memory 为 1.238—1.476 GiB，最大 reserved memory 为 2.234 GiB。SFT-256 运行 256 次更新，约为主 warmstart 更新次数的 16 倍；DPO、在线 DPO 与 GRPO 的更新和生成负担也不同。因此表 11 描述本次运行的资源路径，不能用于声称这些方法在等算力条件下的速度排序或效率胜负。</p>
 <h2>7 讨论</h2>
