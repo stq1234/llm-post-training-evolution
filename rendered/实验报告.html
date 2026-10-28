@@ -861,27 +861,69 @@ $$</p>
 <p>对本实验问题的回答因此受数据与目标边界约束：监督、成对偏好和当前策略程序奖励会改变可解析格式、答案选择和证据集合的相对表现；正确格式、正确答案、完整证据与随事实更新仍需分别衡量。八个源码实现对采样概率、损失归约及更新接口的差异，也说明可复现比较必须报告具体数据流和张量目标，不能只列算法名称。下一步需在更丰富的非合成资料、更多独立运行和受控奖励消融中验证这些观察。</p>
 <h2>参考文献</h2>
 <ol>
-<li>Vaswani, A. et al. <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>. NeurIPS, 2017.</li>
-<li>Brown, T. B. et al. <a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners</a>. NeurIPS, 2020.</li>
-<li>Ouyang, L. et al. <a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a>. NeurIPS, 2022.</li>
-<li>Qwen Team, Yang, A. et al. <a href="https://arxiv.org/abs/2412.15115">Qwen2.5 Technical Report</a>. 2024, revised 2025.</li>
-<li>Qwen Team. <a href="https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/7ae557604adf67be50417f59c2c2f167def9a775/config.json">Qwen2.5-0.5B-Instruct model configuration</a>. 2024.</li>
-<li>Hu, E. J. et al. <a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation of Large Language Models</a>. ICLR, 2022.</li>
-<li>Schulman, J. et al. <a href="https://arxiv.org/abs/1707.06347">Proximal Policy Optimization Algorithms</a>. 2017.</li>
-<li>Schulman, J. et al. <a href="https://arxiv.org/abs/1506.02438">High-Dimensional Continuous Control Using Generalized Advantage Estimation</a>. 2015.</li>
-<li>Rafailov, R. et al. <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization: Your Language Model is Secretly a Reward Model</a>. NeurIPS, 2023.</li>
-<li>Shao, Z. et al. <a href="https://arxiv.org/abs/2402.03300">DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models</a>. 2024.</li>
-<li>本实验源码仓库：<a href="https://github.com/stq1234/llm-post-training-evolution">llm-post-training-evolution</a>.</li>
-<li>Hugging Face. TRL v0.11.4 PPO trainer：<a href="https://github.com/huggingface/trl/blob/1f8ba929fbb6962249386f7dce20155da8a26cda/trl/trainer/ppo_trainer.py#L655-L740">PPO step 与经验检查</a>；<a href="https://github.com/huggingface/trl/blob/1f8ba929fbb6962249386f7dce20155da8a26cda/trl/trainer/ppo_trainer.py#L1112-L1258">参考 KL、GAE 与 PPO 损失</a>。</li>
-<li>Hugging Face. TRL 当前实现：<a href="https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/trainer/grpo_trainer.py#L2371-L2835">GRPO 生成、组奖励与优势</a>；<a href="https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/trainer/grpo_trainer.py#L3067-L3229">概率字段、掩码与损失归约</a>；<a href="https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/experimental/online_dpo/online_dpo_trainer.py#L1149-L1285">在线 DPO 采样和偏好损失</a>。</li>
-<li>CarperAI. trlx：<a href="https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/trainer/accelerate_ppo_trainer.py#L251-L341">Accelerate PPO rollout、reward 分发及 KL</a>；<a href="https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/models/modeling_ppo.py#L136-L227">GAE 与 token masked loss</a>。</li>
-<li>Microsoft. DeepSpeed-Chat（DeepSpeedExamples）：<a href="https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/dschat/rlhf/ppo_trainer.py#L137-L194">PPO 经验构造与终止奖励</a>；<a href="https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/dschat/rlhf/ppo_trainer.py#L196-L306">actor/critic 更新</a>；<a href="https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/training/step2_dpo_finetuning/main.py#L219-L240">DPO 序列概率与更新</a>。</li>
-<li>OpenRLHF：<a href="https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/trainer/ppo_utils/experience_maker.py#L112-L233">角色前向与经验字段</a>；<a href="https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/trainer/ppo_utils/experience_maker.py#L238-L387">组奖励与优势估计</a>；<a href="https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/models/loss.py#L116-L259">token/sequence loss 与校正</a>。</li>
-<li>Volcengine. verl v1：<a href="https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/v1/trainer_base.py#L563-L613">训练入口与队列更新循环</a>；<a href="https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/v1/trainer_base.py#L1635-L1694">old-policy 模式</a>；<a href="https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/core_algos.py#L268-L335">GRPO 组统计与全局归约</a>。</li>
-<li>THUDM. slime：<a href="https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/train.py#L13-L83">主训练与状态保存</a>；<a href="https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/ray/rollout.py#L317-L390">rollout 生成/恢复</a>；<a href="https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/data/batch_builder.py#L48-L110">可重放批次与唯一 rollout 奖励统计</a>。</li>
-<li>Hugging Face. open-r1：<a href="https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/src/open_r1/grpo.py#L73-L147">TRL 依赖与训练入口</a>；<a href="https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/src/open_r1/rewards.py#L40-L111">任务奖励函数</a>。</li>
-<li>Hugging Face. TRL v0.18.0 GRPO trainer：<a href="https://github.com/huggingface/trl/blob/ef4b0b225cf04600332a12a2c83f187623312098/trl/trainer/grpo_trainer.py#L983-L1216">采样、奖励组统计与损失</a>；<a href="https://github.com/huggingface/trl/blob/ef4b0b225cf04600332a12a2c83f187623312098/trl/trainer/grpo_trainer.py#L1324-L1378">old/reference log-prob、KL 与归一化</a>。</li>
-<li>Jingyao Gong. MiniMind：<a href="https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/train_dpo.py#L45-L94">DPO policy/reference loss</a>；<a href="https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/train_grpo.py#L71-L150">GRPO rollout、掩码与目标</a>；<a href="https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/rollout_engine.py#L23-L94">rollout engine</a>。</li>
+<li>
+<p>Vaswani, A. et al. <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>. NeurIPS, 2017.</p>
+</li>
+<li>
+<p>Brown, T. B. et al. <a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners</a>. NeurIPS, 2020.</p>
+</li>
+<li>
+<p>Ouyang, L. et al. <a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a>. NeurIPS, 2022.</p>
+</li>
+<li>
+<p>Qwen Team, Yang, A. et al. <a href="https://arxiv.org/abs/2412.15115">Qwen2.5 Technical Report</a>. 2024, revised 2025.</p>
+</li>
+<li>
+<p>Qwen Team. <a href="https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/7ae557604adf67be50417f59c2c2f167def9a775/config.json">Qwen2.5-0.5B-Instruct model configuration</a>. 2024.</p>
+</li>
+<li>
+<p>Hu, E. J. et al. <a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation of Large Language Models</a>. ICLR, 2022.</p>
+</li>
+<li>
+<p>Schulman, J. et al. <a href="https://arxiv.org/abs/1707.06347">Proximal Policy Optimization Algorithms</a>. 2017.</p>
+</li>
+<li>
+<p>Schulman, J. et al. <a href="https://arxiv.org/abs/1506.02438">High-Dimensional Continuous Control Using Generalized Advantage Estimation</a>. 2015.</p>
+</li>
+<li>
+<p>Rafailov, R. et al. <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization: Your Language Model is Secretly a Reward Model</a>. NeurIPS, 2023.</p>
+</li>
+<li>
+<p>Shao, Z. et al. <a href="https://arxiv.org/abs/2402.03300">DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models</a>. 2024.</p>
+</li>
+<li>
+<p>本实验源码仓库：<a href="https://github.com/stq1234/llm-post-training-evolution">llm-post-training-evolution</a>.</p>
+</li>
+<li>
+<p>Hugging Face. TRL v0.11.4 PPO trainer：<a href="https://github.com/huggingface/trl/blob/1f8ba929fbb6962249386f7dce20155da8a26cda/trl/trainer/ppo_trainer.py#L655-L740">PPO step 与经验检查</a>；<a href="https://github.com/huggingface/trl/blob/1f8ba929fbb6962249386f7dce20155da8a26cda/trl/trainer/ppo_trainer.py#L1112-L1258">参考 KL、GAE 与 PPO 损失</a>。</p>
+</li>
+<li>
+<p>Hugging Face. TRL 当前实现：<a href="https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/trainer/grpo_trainer.py#L2371-L2835">GRPO 生成、组奖励与优势</a>；<a href="https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/trainer/grpo_trainer.py#L3067-L3229">概率字段、掩码与损失归约</a>；<a href="https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/experimental/online_dpo/online_dpo_trainer.py#L1149-L1285">在线 DPO 采样和偏好损失</a>。</p>
+</li>
+<li>
+<p>CarperAI. trlx：<a href="https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/trainer/accelerate_ppo_trainer.py#L251-L341">Accelerate PPO rollout、reward 分发及 KL</a>；<a href="https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/models/modeling_ppo.py#L136-L227">GAE 与 token masked loss</a>。</p>
+</li>
+<li>
+<p>Microsoft. DeepSpeed-Chat（DeepSpeedExamples）：<a href="https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/dschat/rlhf/ppo_trainer.py#L137-L194">PPO 经验构造与终止奖励</a>；<a href="https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/dschat/rlhf/ppo_trainer.py#L196-L306">actor/critic 更新</a>；<a href="https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/training/step2_dpo_finetuning/main.py#L219-L240">DPO 序列概率与更新</a>。</p>
+</li>
+<li>
+<p>OpenRLHF：<a href="https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/trainer/ppo_utils/experience_maker.py#L112-L233">角色前向与经验字段</a>；<a href="https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/trainer/ppo_utils/experience_maker.py#L238-L387">组奖励与优势估计</a>；<a href="https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/models/loss.py#L116-L259">token/sequence loss 与校正</a>。</p>
+</li>
+<li>
+<p>Volcengine. verl v1：<a href="https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/v1/trainer_base.py#L563-L613">训练入口与队列更新循环</a>；<a href="https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/v1/trainer_base.py#L1635-L1694">old-policy 模式</a>；<a href="https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/core_algos.py#L268-L335">GRPO 组统计与全局归约</a>。</p>
+</li>
+<li>
+<p>THUDM. slime：<a href="https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/train.py#L13-L83">主训练与状态保存</a>；<a href="https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/ray/rollout.py#L317-L390">rollout 生成/恢复</a>；<a href="https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/data/batch_builder.py#L48-L110">可重放批次与唯一 rollout 奖励统计</a>。</p>
+</li>
+<li>
+<p>Hugging Face. open-r1：<a href="https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/src/open_r1/grpo.py#L73-L147">TRL 依赖与训练入口</a>；<a href="https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/src/open_r1/rewards.py#L40-L111">任务奖励函数</a>。</p>
+</li>
+<li>
+<p>Hugging Face. TRL v0.18.0 GRPO trainer：<a href="https://github.com/huggingface/trl/blob/ef4b0b225cf04600332a12a2c83f187623312098/trl/trainer/grpo_trainer.py#L983-L1216">采样、奖励组统计与损失</a>；<a href="https://github.com/huggingface/trl/blob/ef4b0b225cf04600332a12a2c83f187623312098/trl/trainer/grpo_trainer.py#L1324-L1378">old/reference log-prob、KL 与归一化</a>。</p>
+</li>
+<li>
+<p>Jingyao Gong. MiniMind：<a href="https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/train_dpo.py#L45-L94">DPO policy/reference loss</a>；<a href="https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/train_grpo.py#L71-L150">GRPO rollout、掩码与目标</a>；<a href="https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/rollout_engine.py#L23-L94">rollout engine</a>。</p>
+</li>
 </ol>
 </body>
 </html>

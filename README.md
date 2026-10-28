@@ -2,7 +2,7 @@
 
 项目资料与实验代码仓库：<https://github.com/stq1234/llm-post-training-evolution>
 
-本作业分支完整链接：[https://github.com/stq1234/llm-post-training-evolution/tree/main](https://github.com/stq1234/llm-post-training-evolution/tree/main)
+本作业分支已归档：[https://github.com/stq1234/llm-post-training-evolution/tree/main](https://github.com/stq1234/llm-post-training-evolution/tree/main)
 
 本仓库归档后训练代码分析与可复现实验：包括合成中文证据问答数据、PyTorch LoRA 训练/评估、结果分析和本作业实验报告。综述与 DPO 思考题各自保存在课程根目录下的独立作业文件夹，不在本仓库复制。实验实现统一使用 `Qwen/Qwen2.5-0.5B-Instruct`，固定 revision `7ae557604adf67be50417f59c2c2f167def9a775`。
 

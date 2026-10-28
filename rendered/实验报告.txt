@@ -2255,9 +2255,15 @@ SFT-16 主要提升了 JSON 格式，但其同分布联合正确率仍只有 0.3
 
 
 
+
+
 Vaswani, A. et al.
 Attention Is All You Need
 . NeurIPS, 2017.
+
+
+
+
 
 
 Brown, T. B. et al.
@@ -2265,9 +2271,17 @@ Language Models are Few-Shot Learners
 . NeurIPS, 2020.
 
 
+
+
+
+
 Ouyang, L. et al.
 Training language models to follow instructions with human feedback
 . NeurIPS, 2022.
+
+
+
+
 
 
 Qwen Team, Yang, A. et al.
@@ -2275,9 +2289,17 @@ Qwen2.5 Technical Report
 . 2024, revised 2025.
 
 
+
+
+
+
 Qwen Team.
 Qwen2.5-0.5B-Instruct model configuration
 . 2024.
+
+
+
+
 
 
 Hu, E. J. et al.
@@ -2285,9 +2307,17 @@ LoRA: Low-Rank Adaptation of Large Language Models
 . ICLR, 2022.
 
 
+
+
+
+
 Schulman, J. et al.
 Proximal Policy Optimization Algorithms
 . 2017.
+
+
+
+
 
 
 Schulman, J. et al.
@@ -2295,9 +2325,17 @@ High-Dimensional Continuous Control Using Generalized Advantage Estimation
 . 2015.
 
 
+
+
+
+
 Rafailov, R. et al.
 Direct Preference Optimization: Your Language Model is Secretly a Reward Model
 . NeurIPS, 2023.
+
+
+
+
 
 
 Shao, Z. et al.
@@ -2305,9 +2343,17 @@ DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Mode
 . 2024.
 
 
+
+
+
+
 本实验源码仓库：
 llm-post-training-evolution
 .
+
+
+
+
 
 
 Hugging Face. TRL v0.11.4 PPO trainer：
@@ -2315,6 +2361,10 @@ PPO step 与经验检查
 ；
 参考 KL、GAE 与 PPO 损失
 。
+
+
+
+
 
 
 Hugging Face. TRL 当前实现：
@@ -2326,11 +2376,19 @@ GRPO 生成、组奖励与优势
 。
 
 
+
+
+
+
 CarperAI. trlx：
 Accelerate PPO rollout、reward 分发及 KL
 ；
 GAE 与 token masked loss
 。
+
+
+
+
 
 
 Microsoft. DeepSpeed-Chat（DeepSpeedExamples）：
@@ -2342,6 +2400,10 @@ DPO 序列概率与更新
 。
 
 
+
+
+
+
 OpenRLHF：
 角色前向与经验字段
 ；
@@ -2349,6 +2411,10 @@ OpenRLHF：
 ；
 token/sequence loss 与校正
 。
+
+
+
+
 
 
 Volcengine. verl v1：
@@ -2360,6 +2426,10 @@ GRPO 组统计与全局归约
 。
 
 
+
+
+
+
 THUDM. slime：
 主训练与状态保存
 ；
@@ -2369,6 +2439,10 @@ rollout 生成/恢复
 。
 
 
+
+
+
+
 Hugging Face. open-r1：
 TRL 依赖与训练入口
 ；
@@ -2376,11 +2450,19 @@ TRL 依赖与训练入口
 。
 
 
+
+
+
+
 Hugging Face. TRL v0.18.0 GRPO trainer：
 采样、奖励组统计与损失
 ；
 old/reference log-prob、KL 与归一化
 。
+
+
+
+
 
 
 Jingyao Gong. MiniMind：
