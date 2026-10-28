@@ -301,6 +301,8 @@ $$
 
 
 下面取 β>0，并假设配分函数 Z(x) 有限、待优化策略的支持集包含于参考策略支持集，否则所用方向的 KL 可能为无穷大。对固定提示 x，令策略分布满足概率归一化，可写出含拉格朗日乘子的目标：
+
+
 $$
 \mathcal{F}(\pi,\eta)
 =
@@ -311,7 +313,11 @@ $$
 +
 \eta\left(\sum_y\pi(y\mid x)-1\right).
 $$
+
+
 对每个 y 的概率求一阶导并令其为零，得到：
+
+
 $$
 r_{\phi}(x,y)
 -
@@ -323,6 +329,8 @@ r_{\phi}(x,y)
 =
 0.
 $$
+
+
 因此，最优策略与参考策略的 log ratio 等于奖励除以 β 再加与 y 无关的归一化常数；把这一常数合并进配分函数，就得到：
 
 
@@ -2581,6 +2589,8 @@ arXiv:2610.02015
 [43] Hu, J. et al. 2024. “OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework.”
 arXiv:2405.11143
 .
+
+
 [44] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. & Klimov, O. 2017. “Proximal Policy Optimization Algorithms.” arXiv v2, revised 2017-08-28;
 arXiv:1707.06347v2
 .

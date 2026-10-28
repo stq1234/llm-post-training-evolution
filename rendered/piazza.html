@@ -138,8 +138,8 @@ $$</p>
 D_{\mathrm{KL}}\!\left(\pi(\cdot\mid x)\,\|\,\pi_{\mathrm{ref}}(\cdot\mid x)\right)
 \right].
 $$</p>
-<p>下面取 β&gt;0，并假设配分函数 Z(x) 有限、待优化策略的支持集包含于参考策略支持集，否则所用方向的 KL 可能为无穷大。对固定提示 x，令策略分布满足概率归一化，可写出含拉格朗日乘子的目标：
-$$
+<p>下面取 β&gt;0，并假设配分函数 Z(x) 有限、待优化策略的支持集包含于参考策略支持集，否则所用方向的 KL 可能为无穷大。对固定提示 x，令策略分布满足概率归一化，可写出含拉格朗日乘子的目标：</p>
+<p>$$
 \mathcal{F}(\pi,\eta)
 =
 \sum_y \pi(y\mid x)r_{\phi}(x,y)
@@ -148,9 +148,9 @@ $$
 \frac{\pi(y\mid x)}{\pi_{\mathrm{ref}}(y\mid x)}
 +
 \eta\left(\sum_y\pi(y\mid x)-1\right).
-$$
-对每个 y 的概率求一阶导并令其为零，得到：
-$$
+$$</p>
+<p>对每个 y 的概率求一阶导并令其为零，得到：</p>
+<p>$$
 r_{\phi}(x,y)
 -
 \beta\left(
@@ -160,8 +160,8 @@ r_{\phi}(x,y)
 \eta
 =
 0.
-$$
-因此，最优策略与参考策略的 log ratio 等于奖励除以 β 再加与 y 无关的归一化常数；把这一常数合并进配分函数，就得到：</p>
+$$</p>
+<p>因此，最优策略与参考策略的 log ratio 等于奖励除以 β 再加与 y 无关的归一化常数；把这一常数合并进配分函数，就得到：</p>
 <p>$$
 \pi^{*}(y\mid x)
 =
@@ -1032,8 +1032,8 @@ $$</p>
 <p>[40] Kimi Team. 2026. “Kimi K2.5: Visual Agentic Intelligence.” arXiv v2, revised 2026-08-07; <a href="https://arxiv.org/abs/2602.02276v2">arXiv:2602.02276v2</a>.</p>
 <p>[41] Sheng, G. et al. 2024. “HybridFlow: A Flexible and Efficient RLHF Framework.” <a href="https://arxiv.org/abs/2409.19256">arXiv:2409.19256</a>.</p>
 <p>[42] Sullivan, M. &amp; Koller, A. 2026. “On Language Drift during RLVR Post-Training.” arXiv v1, submitted 2026-10-01; <a href="https://arxiv.org/abs/2610.02015">arXiv:2610.02015</a>.</p>
-<p>[43] Hu, J. et al. 2024. “OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework.” <a href="https://arxiv.org/abs/2405.11143">arXiv:2405.11143</a>.
-[44] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. 2017. “Proximal Policy Optimization Algorithms.” arXiv v2, revised 2017-08-28; <a href="https://arxiv.org/abs/1707.06347v2">arXiv:1707.06347v2</a>.</p>
+<p>[43] Hu, J. et al. 2024. “OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework.” <a href="https://arxiv.org/abs/2405.11143">arXiv:2405.11143</a>.</p>
+<p>[44] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. 2017. “Proximal Policy Optimization Algorithms.” arXiv v2, revised 2017-08-28; <a href="https://arxiv.org/abs/1707.06347v2">arXiv:1707.06347v2</a>.</p>
 <p>[45] Schulman, J., Moritz, P., Levine, S., Jordan, M. &amp; Abbeel, P. 2015/2018. “High-Dimensional Continuous Control Using Generalized Advantage Estimation.” arXiv v6, revised 2018-10-20; <a href="https://arxiv.org/abs/1506.02438v6">arXiv:1506.02438v6</a>.</p>
 <p>[46] Chen, M. et al. 2021. “Evaluating Large Language Models Trained on Code.” <a href="https://arxiv.org/abs/2107.03374">arXiv:2107.03374</a>.</p>
 </body>
