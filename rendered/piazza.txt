@@ -2348,7 +2348,7 @@ DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Mode
 
 
 本实验源码仓库：
-llm-post-training-evolution
+https://github.com/stq1234/llm-post-training-evolution
 .
 
 
