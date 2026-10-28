@@ -3,18 +3,25 @@
 ## GitHub 归档
 
 - 仓库：[https://github.com/stq1234/llm-post-training-evolution](https://github.com/stq1234/llm-post-training-evolution)
-- 5.2 实验仓库分支：`main`
-- 已推送的前一版代码实验归档提交：`017c182eea06057ca69a49ab4b2cbb862418a32c`。
-- 归档计划：5.1、5.3 目录各自作为独立 Git 工作目录，分别对应同一远程上的 `survey`、`dpo-discussion` 分支；两个分支目前尚未推送，待主线执行归档。
+
+| 作业编号 | 分支 | 发布正文对应的已推送提交 |
+|---|---|---|
+| 5.1 后训练技术演进综述 | [`survey`](https://github.com/stq1234/llm-post-training-evolution/tree/survey) | `48f574c` |
+| 5.2 后训练代码分析与实验 | [`main`](https://github.com/stq1234/llm-post-training-evolution/tree/main) | `60d18bb` |
+| 5.3 DPO 与在线强化学习思考题 | [`dpo-discussion`](https://github.com/stq1234/llm-post-training-evolution/tree/dpo-discussion) | `d68ef96` |
+
+`main` 的早期代码实验归档提交 `017c182eea06057ca69a49ab4b2cbb862418a32c` 已由上述三目录归档更新。
 
 ## Piazza 帖子
 
-三个帖子对应的作业均归属 HW5；每个帖子实际勾选 `hw1`、`hw2`、`hw3`、`hw4`、`hw5`、`other` 六个标签。帖子标题使用用户提供的原文；三份正文分别位于课程根目录下的三个独立作业文件夹。本仓库只保留 5.2 实验正文，不复制另两份纯文本作业。
+三个作业均归属 HW5；每个帖子实际勾选 `hw1`、`hw2`、`hw3`、`hw4`、`hw5`、`other` 六个标签。三份正文分别保存在课程根目录下的独立作业目录中；本实验仓库只保留 5.2 正文。
 
-| 作业编号 | 帖子独立标题 | 本地正文 | 状态与核验 | Piazza URL |
+| 作业编号 | 帖子独立标题 | 本地正文 | 保存后核验 | Piazza URL |
 |---|---|---|---|---|
-| 5.1 | 关于大语言模型后训练技术演进的综述 | `../../作业5.1_后训练技术演进综述/综述论文.md` | 原帖已发布；用户要求扩写综述，需更新原帖 168。旧版本曾核验 6 个公式、3 张表及 2 张图片；扩写版待重新核验 | [https://piazza.com/class/mttcaxxvtxe5vj/post/168](https://piazza.com/class/mttcaxxvtxe5vj/post/168) |
-| 5.2 | 大语言模型后训练技术演进代码分析与任务实操 | [`../实验报告.md`](../实验报告.md) | 尚未发布；待发布并核验保存后的正文、公式、图片与链接 | **待补：主线提供真实 Piazza URL** |
-| 5.3 | DPO与其他强化学习训练对比的思考 | `../../作业5.3_DPO与在线强化学习思考题/思考题回答.md` | 尚未发布；待发布并核验保存后的正文、公式与链接 | **待补：主线提供真实 Piazza URL** |
+| 5.1 | 关于大语言模型后训练技术演进的综述 | `../../作业5.1_后训练技术演进综述/综述论文.md` | 原帖 168 已更新，独立标题不变；26 个公式、10 张表、4 张图均正常加载 | [https://piazza.com/class/mttcaxxvtxe5vj/post/168](https://piazza.com/class/mttcaxxvtxe5vj/post/168) |
+| 5.2 | 大语言模型后训练技术演进代码分析与任务实操 | [`../实验报告.md`](../实验报告.md) | 17 个公式、11 张表、5 张图均正常加载；摘要中完整仓库 URL 与说明为加粗段落，参考文献处仓库 URL 已修正 | [https://piazza.com/class/mttcaxxvtxe5vj/post/169](https://piazza.com/class/mttcaxxvtxe5vj/post/169) |
+| 5.3 | DPO与其他强化学习训练对比的思考 | `../../作业5.3_DPO与在线强化学习思考题/思考题回答.md` | 11 个公式、1 张表正常加载；无图片 | [https://piazza.com/class/mttcaxxvtxe5vj/post/170](https://piazza.com/class/mttcaxxvtxe5vj/post/170) |
 
-旧版综述 2 张图与实验帖 5 张图共 7 张，均已上传。扩写后的综述包含 4 张图（2 张重绘、2 张新增），尚待上传并核验；实验帖沿用的 5 个图片 URL 仍有效。后两帖的 URL 和保存后核验信息待主线提供；此处不预填或推测帖子 ID。post 168 是原帖更新目标，不创建综述替代帖。
+发布前，三帖正文分别与本地 HTML 全文去空白后逐字一致。发布后已核对 H1 与帖子独立标题、公式渲染、文末引用及六个标签；公式均无显示错误。综述通过更新原帖 168 保留原独立标题，未另建替代帖。
+
+课程列表截图：[`piazza_submission.jpg`](piazza_submission.jpg)。

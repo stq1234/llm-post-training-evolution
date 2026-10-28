@@ -33,9 +33,9 @@
 - **环境准备**：项目 venv 和依赖版本已记录在 `requirements.txt`；固定 revision 的 Qwen2.5-0.5B-Instruct 已缓存，完成 CPU 配置/tokenizer 加载及最多 32-token GPU 推理冒烟验证。冒烟测试不是训练实验。当前 venv 复用了系统包，`pip check` 暴露了既有共享依赖冲突；PEFT/Accelerate 导入通过，未改写 base。新机器的干净安装步骤见 `README.md`。
 - **训练与评估已完成**：validation 与三个测试划分共 48/48 个方法、seed、split 评估均完整，产生 6,912 条预测；`results/analysis/summary.json` 没有缺失预测文件、不完整评估或缺失训练摘要。主要方法均运行 seed 17、29；基线与 256-update SFT 高预算对照 `sft_long_seed17` 为单次运行。Validation 预算规则选中 SFT-16。项目检查记录为 17 项测试通过（本次文档更新未重跑）。方法指标和资源实测见 [`research/experiment_results.md`](../research/experiment_results.md)。
 - **结果要点**：严格联合正确要求 JSON 格式、答案和证据编号集合同时正确。两 seed 的 SFT 平均联合正确率在同分布、措辞留出、反事实测试分别为 0.363、0.334、0.322；DPO 为 0.225、0.291、0.159，配对差在三项划分都低于同 seed SFT。OnlineDPO 为 0.366、0.366、0.378，full-reward GRPO 为 0.397、0.366、0.394；full 相对 format-only GRPO 的配对差分别为 +7.2、+3.1、+9.7 个百分点。`sft_long_seed17` 得分较高，但仅一个 seed，作为单次高预算对照，不代表稳定的跨 seed 结论。完整数值与边界见结果文档。
-- **Piazza 与归档状态**：原代码实验归档提交 `017c182eea06057ca69a49ab4b2cbb862418a32c` 已推送到 5.2 的 `main`；5.1、5.3 将各自维护为独立 Git 工作目录，分别对应同一远程的 `survey`、`dpo-discussion` 分支，尚未推送，待主线执行归档。综述帖原链接为 [https://piazza.com/class/mttcaxxvtxe5vj/post/168](https://piazza.com/class/mttcaxxvtxe5vj/post/168)，用户要求扩写综述后更新该原帖，不另发新帖。旧版本保存后曾核验 6 个公式、3 张表、2 张图片；扩写更新后仍须重新核验。其余两帖尚未发布。旧版综述 2 张图及实验帖 5 张图（共 7 张）已上传；新综述的 4 张图（2 张重绘、2 张新增）待上传并核验，实验帖既有 5 个图片 URL 继续有效。
-- **剩余工作**：完成 5.1 综述扩写并更新 Piazza 原帖 168；发布 5.2 实验帖和 5.3 DPO 思考题帖；取得真实帖子链接及保存后核验结果并写入 `docs/SUBMISSION.md`。训练、评估和 5.2 实验报告已完成。
+- **Piazza 与归档状态**：三个归档分支均已推送：5.1 `survey`（`48f574c`）、5.2 `main`（`60d18bb`）、5.3 `dpo-discussion`（`d68ef96`）。Piazza 三帖均已保存并通过发布后核验：综述原帖 [post 168](https://piazza.com/class/mttcaxxvtxe5vj/post/168) 已更新且标题未变；实验帖为 [post 169](https://piazza.com/class/mttcaxxvtxe5vj/post/169)；DPO 思考题帖为 [post 170](https://piazza.com/class/mttcaxxvtxe5vj/post/170)。三个帖子均属于 HW5，且每帖实际勾选 `hw1`、`hw2`、`hw3`、`hw4`、`hw5`、`other` 六个标签。综述的 26 个公式、10 张表和 4 张图，实验帖的 17 个公式、11 张表和 5 张图，思考题帖的 11 个公式和 1 张表均正常加载；思考题帖无图片。
+- **发布内容核验**：发布前，三帖正文均与各自本地 HTML 全文去空白后逐字一致；发布后核对 H1 与帖子独立标题、公式渲染、文末引用及六个标签。实验帖摘要中的完整仓库 URL 和说明已确认以加粗段落呈现，参考文献处仓库 URL 已修正。
 
-## 后续发布核对
+## 已完成的提交核对
 
-综述扩写完成后编辑原有 post 168；按用户提供的原文标题发布其余两帖。三个帖子均归属 HW5，且每帖实际勾选 `hw1`、`hw2`、`hw3`、`hw4`、`hw5`、`other` 六个标签。新综述的 4 张图上传后，保存时核对正文、公式、表格、图片和帖子链接。提交记录与 URL 集中维护在 `docs/SUBMISSION.md`。
+完整帖子映射与保存后核验结果见 [`docs/SUBMISSION.md`](SUBMISSION.md)。三个帖子的正文、公式、表格、图片及标签均已核对，所有发布链接均为实测页面地址。

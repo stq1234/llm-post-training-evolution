@@ -2,7 +2,7 @@
 
 项目资料与实验代码仓库：<https://github.com/stq1234/llm-post-training-evolution>
 
-本作业分支已归档：[https://github.com/stq1234/llm-post-training-evolution/tree/main](https://github.com/stq1234/llm-post-training-evolution/tree/main)
+本作业分支已归档（当前提交 `60d18bb`）：[https://github.com/stq1234/llm-post-training-evolution/tree/main](https://github.com/stq1234/llm-post-training-evolution/tree/main)
 
 本仓库归档后训练代码分析与可复现实验：包括合成中文证据问答数据、PyTorch LoRA 训练/评估、结果分析和本作业实验报告。综述与 DPO 思考题各自保存在课程根目录下的独立作业文件夹，不在本仓库复制。实验实现统一使用 `Qwen/Qwen2.5-0.5B-Instruct`，固定 revision `7ae557604adf67be50417f59c2c2f167def9a775`。
 
@@ -96,7 +96,7 @@ results/eval/<method>_seed<17|29>/<split>/       # 微调分支的逐样本预�
 
 ## GitHub 与 Piazza 提交状态
 
-实验报告和实验归档已完成。此前的代码实验归档提交 `017c182eea06057ca69a49ab4b2cbb862418a32c` 已推送至 `main`。归档计划为：5.2 保留 `main`；独立的 5.1 与 5.3 本地 Git 工作目录分别对应同一用户指定远程上的 `survey`、`dpo-discussion` 分支，这两个分支尚未推送。综述帖原帖已发布，但由于用户要求扩写综述，Piazza post 168 仍待更新；代码分析与实验帖和 DPO 思考题帖尚未发布。三个作业均归属 `hw5`，每个帖子实际勾选全部六个标签：`hw1`、`hw2`、`hw3`、`hw4`、`hw5`、`other`。状态及链接见 [`docs/SUBMISSION.md`](docs/SUBMISSION.md)。
+实验报告与三分支归档均已完成：5.1 `survey`（`48f574c`）、5.2 `main`（`60d18bb`）、5.3 `dpo-discussion`（`d68ef96`）。三个作业均归属 `hw5`，每个帖子实际勾选全部六个标签：`hw1`、`hw2`、`hw3`、`hw4`、`hw5`、`other`。Piazza 综述原帖 [post 168](https://piazza.com/class/mttcaxxvtxe5vj/post/168) 已更新；实验帖 [post 169](https://piazza.com/class/mttcaxxvtxe5vj/post/169) 和 DPO 思考题帖 [post 170](https://piazza.com/class/mttcaxxvtxe5vj/post/170) 已发布并核验。完整映射和核验记录见 [`docs/SUBMISSION.md`](docs/SUBMISSION.md)。
 
 ## 环境安装
 
