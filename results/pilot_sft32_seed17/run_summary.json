@@ -1,0 +1,10 @@
+{
+  "updates": 32,
+  "training_updates": 32,
+  "wall_time_seconds": 27.047,
+  "generated_tokens": 0,
+  "updated_tokens": 1871,
+  "peak_cuda_allocated_bytes": 1449372672,
+  "peak_cuda_reserved_bytes": 2399141888,
+  "adapter_path": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\pilot_sft32_seed17\\adapter"
+}

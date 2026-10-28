@@ -1,0 +1,3 @@
+﻿candidate,run,seed,steps,n,prediction_file,format_valid,answer_correct,joint_correct,format_pass_95,joint_below_95,eligible,selected,wall_time_seconds,generated_tokens,updated_tokens,peak_cuda_allocated_gib,peak_cuda_reserved_gib
+SFT-16,sft_seed17,17,16,96,eval\sft_seed17\validation\predictions.jsonl,0.9895833333333334,0.7395833333333334,0.4375,True,True,True,True,18.306,0.0,927.0,1.3498334884643555,2.234375
+SFT-32,pilot_sft32_seed17,17,32,96,eval\pilot_sft32_seed17\validation\predictions.jsonl,1.0,0.9479166666666666,0.7604166666666666,True,True,True,False,27.047,0.0,1871.0,1.3498334884643555,2.234375

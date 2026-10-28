@@ -1,0 +1,14 @@
+{
+  "updates": 52,
+  "training_updates": 52,
+  "wall_time_seconds": 288.333,
+  "generated_tokens": 6532,
+  "updated_tokens": 2140,
+  "peak_cuda_allocated_bytes": 1584440320,
+  "peak_cuda_reserved_bytes": 1944059904,
+  "adapter_path": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\online_dpo_seed29\\adapter\\policy",
+  "rollout_prompts": 128,
+  "skipped_ties": 53,
+  "max_rollout_prompts": 128,
+  "rollout_budget_exhausted": true
+}

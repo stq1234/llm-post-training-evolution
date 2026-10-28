@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.scratch/
+models/
+checkpoints/
+*.log
+!results/suite_seed17_seed29/run_suite.log
+.cache/

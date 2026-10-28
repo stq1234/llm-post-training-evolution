@@ -1,0 +1,6 @@
+# Preserve the bytes of generated datasets, predictions, and recorded outputs.
+* -text
+# CRLF line endings are valid on the recorded Windows execution host.
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Matplotlib preserves whitespace separators inside generated SVG path data.
+figures/*.svg -whitespace

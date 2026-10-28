@@ -1,0 +1,73 @@
+{
+  "seed": 17,
+  "model": {
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "device": "auto"
+  },
+  "training": {
+    "batch_size": 1,
+    "grad_accum": 1,
+    "max_prompt_length": 256,
+    "max_completion_length": 64,
+    "max_new_tokens": 64
+  },
+  "commands": {
+    "sft": {
+      "input": "data/train_sft.jsonl",
+      "output": "results/sft_seed17",
+      "steps": 16,
+      "grad_accum": 4,
+      "learning_rate": 0.0002
+    },
+    "dpo": {
+      "input": "data/preferences_train.jsonl",
+      "output": "results/dpo_seed17",
+      "adapter": "results/sft_seed17/adapter",
+      "steps": 64,
+      "grad_accum": 4,
+      "learning_rate": 0.00005
+    },
+    "online_dpo": {
+      "input": "data/train_pref.jsonl",
+      "output": "results/online_dpo_seed17",
+      "adapter": "results/sft_seed17/adapter",
+      "steps": 64,
+      "grad_accum": 2,
+      "max_rollout_prompts": 128,
+      "learning_rate": 0.00005
+    },
+    "grpo": {
+      "input": "data/train_pref.jsonl",
+      "output": "results/grpo_seed17",
+      "adapter": "results/sft_seed17/adapter",
+      "steps": 128,
+      "grad_accum": 2,
+      "learning_rate": 0.00001
+    },
+    "evaluate": {
+      "input": "data/test_id.jsonl",
+      "output": "results/eval/sft_seed17/test_id",
+      "adapter": "results/sft_seed17/adapter",
+      "batch_size": 8
+    }
+  },
+  "objectives": {
+    "dpo": {
+      "beta": 0.1
+    },
+    "online_dpo": {
+      "beta": 0.1,
+      "reward_mode": "full",
+      "group_size": 4
+    },
+    "grpo": {
+      "beta": 0.02,
+      "reward_mode": "full",
+      "group_size": 4,
+      "clip_epsilon": 0.2,
+      "advantage_eps": 0.0001,
+      "update_epochs": 2
+    }
+  }
+}

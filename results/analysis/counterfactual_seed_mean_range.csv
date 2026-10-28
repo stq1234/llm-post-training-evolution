@@ -1,0 +1,8 @@
+﻿method,n_seeds,paired_double_joint_success_mean,paired_double_joint_success_min,paired_double_joint_success_max,complete_pairs_mean,complete_pairs_min,complete_pairs_max,incomplete_pairs_mean,incomplete_pairs_min,incomplete_pairs_max
+baseline,1,0.0,0.0,0.0,80.0,80.0,80.0,0.0,0.0,0.0
+sft,2,0.21875,0.15,0.2875,80.0,80.0,80.0,0.0,0.0,0.0
+sft_long,1,0.4125,0.4125,0.4125,80.0,80.0,80.0,0.0,0.0,0.0
+dpo,2,0.04375,0.0,0.0875,80.0,80.0,80.0,0.0,0.0,0.0
+online_dpo,2,0.25625,0.2,0.3125,80.0,80.0,80.0,0.0,0.0,0.0
+grpo,2,0.30000000000000004,0.275,0.325,80.0,80.0,80.0,0.0,0.0,0.0
+grpo_format,2,0.16874999999999998,0.05,0.2875,80.0,80.0,80.0,0.0,0.0,0.0

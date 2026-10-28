@@ -1,0 +1,38 @@
+{
+  "method": "grpo",
+  "seed": 17,
+  "input": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\data\\train_pref.jsonl",
+  "output": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\grpo_seed17",
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "adapter_input": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\sft_seed17\\adapter",
+  "device": "cuda:0",
+  "dtype": "bfloat16",
+  "dataset_rows": 256,
+  "parameters": {
+    "total_parameters": 495114112,
+    "trainable_parameters": 540672
+  },
+  "settings": {
+    "seed": 17,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "device": "auto",
+    "batch_size": 1,
+    "grad_accum": 2,
+    "max_prompt_length": 256,
+    "max_completion_length": 64,
+    "max_new_tokens": 64,
+    "input": "data/train_pref.jsonl",
+    "output": "results/grpo_seed17",
+    "adapter": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\sft_seed17\\adapter",
+    "steps": 128,
+    "learning_rate": 1e-05,
+    "beta": 0.02,
+    "reward_mode": "full",
+    "group_size": 4,
+    "clip_epsilon": 0.2,
+    "advantage_eps": 0.0001,
+    "update_epochs": 2
+  }
+}

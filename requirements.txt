@@ -1,0 +1,11 @@
+# The project .venv uses --system-site-packages to reuse the CUDA-enabled Torch wheel.
+# Reinstall Torch from the matching PyTorch CUDA index when recreating the base runtime.
+torch==2.12.0+cu126
+transformers==4.51.3
+datasets==4.3.0
+huggingface-hub==0.31.2
+matplotlib==3.9.2
+peft==0.15.2
+accelerate==1.6.0
+Markdown==3.4.1
+beautifulsoup4==4.12.3

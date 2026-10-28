@@ -1,0 +1,503 @@
+{
+  "title": "后训练实现源码锁定与函数索引",
+  "inspectionDate": "2026-10-28",
+  "method": "Sparse clone公开仓库，在本地读取指定函数；commit字段为完整Git对象标识，permanentUrl字段固定到该提交。",
+  "projects": [
+    {
+      "project": "Hugging Face TRL current",
+      "repository": "https://github.com/huggingface/trl",
+      "ref": "main",
+      "commit": "c886cf23d74acd8dfed95b63943a8dba0f25d85f",
+      "methods": [
+        "DPO",
+        "Online DPO",
+        "GRPO"
+      ],
+      "files": [
+        {
+          "path": "trl/trainer/grpo_trainer.py",
+          "roles": {
+            "entry": "GRPOTrainer",
+            "rollout": "_generate_and_score_completions",
+            "advantage": "grouped reward normalization",
+            "loss": "_compute_loss",
+            "backprop": "training_step",
+            "checkpoint": "_save_checkpoint"
+          },
+          "lines": "142, 1557, 2371-2835, 3067-3229, 3432",
+          "permanentUrl": "https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/trainer/grpo_trainer.py"
+        },
+        {
+          "path": "trl/experimental/online_dpo/online_dpo_trainer.py",
+          "roles": {
+            "rollout": "_generate",
+            "reward": "_calculate_rewards_from_functions",
+            "training": "training_step",
+            "loss": "reward-sort pairs, masked sequence log-prob sums, sigmoid/IPO",
+            "checkpoint": "_save_checkpoint"
+          },
+          "lines": "947-1015, 1060-1147, 1149-1285, 1371-1377",
+          "permanentUrl": "https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/experimental/online_dpo/online_dpo_trainer.py"
+        },
+        {
+          "path": "trl/trainer/dpo_trainer.py",
+          "roles": {
+            "loss": "_compute_loss",
+            "checkpoint": "_save_checkpoint"
+          },
+          "lines": "1337-1415, 1776",
+          "permanentUrl": "https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/trainer/dpo_trainer.py"
+        },
+        {
+          "path": "trl/trainer/base_trainer.py",
+          "roles": {
+            "trainerBase": "_BaseTrainer extends Transformers Trainer"
+          },
+          "lines": "63",
+          "permanentUrl": "https://github.com/huggingface/trl/blob/c886cf23d74acd8dfed95b63943a8dba0f25d85f/trl/trainer/base_trainer.py"
+        }
+      ]
+    },
+    {
+      "project": "Hugging Face TRL v0.18.0 dependency snapshot",
+      "repository": "https://github.com/huggingface/trl",
+      "ref": "v0.18.0",
+      "annotatedTagObject": "5e2ef1a901f4169c49aa3c351c72a031580ea9b4",
+      "commit": "ef4b0b225cf04600332a12a2c83f187623312098",
+      "methods": [
+        "GRPO dependency pinned by open-r1"
+      ],
+      "files": [
+        {
+          "path": "trl/trainer/grpo_trainer.py",
+          "roles": {
+            "entry": "GRPOTrainer extends Transformers Trainer",
+            "rollout": "_generate_and_score_completions",
+            "reward": "reward function aggregation and gather",
+            "advantage": "group reward mean and optional std normalization",
+            "loss": "_compute_loss; grpo/bnpo/dr_grpo",
+            "backpropCheckpoint": "delegated to Transformers Trainer"
+          },
+          "lines": "280, 983-1216, 1324-1404",
+          "permanentUrl": "https://github.com/huggingface/trl/blob/ef4b0b225cf04600332a12a2c83f187623312098/trl/trainer/grpo_trainer.py"
+        }
+      ]
+    },
+    {
+      "project": "Hugging Face TRL PPO historical",
+      "repository": "https://github.com/huggingface/trl",
+      "ref": "v0.11.4",
+      "annotatedTagObject": "714cd42f67cb2c8bef91546dbb2258e326c03c89",
+      "commit": "1f8ba929fbb6962249386f7dce20155da8a26cda",
+      "methods": [
+        "PPO"
+      ],
+      "files": [
+        {
+          "path": "trl/trainer/ppo_trainer.py",
+          "roles": {
+            "entry": "PPOTrainer.step",
+            "rollout": "generate",
+            "sampleLogProbs": "batched_forward_pass",
+            "reward": "compute_rewards",
+            "advantage": "compute_advantages (GAE)",
+            "loss": "loss",
+            "backprop": "train_minibatch"
+          },
+          "lines": "117, 462, 655, 979-1110, 1112-1258",
+          "permanentUrl": "https://github.com/huggingface/trl/blob/1f8ba929fbb6962249386f7dce20155da8a26cda/trl/trainer/ppo_trainer.py"
+        }
+      ]
+    },
+    {
+      "project": "CarperAI trlx",
+      "repository": "https://github.com/CarperAI/trlx",
+      "ref": "main",
+      "commit": "3340c2f3a56d1d14fdd5f13ad575121fa26b6d92",
+      "methods": [
+        "PPO"
+      ],
+      "files": [
+        {
+          "path": "trlx/utils/loading.py",
+          "roles": {
+            "entry": "registry loader for the selected trainer and data pipeline",
+            "registration": "AcceleratePPOTrainer registration import"
+          },
+          "lines": "3-12, 31-50",
+          "permanentUrl": "https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/utils/loading.py"
+        },
+        {
+          "path": "trlx/pipeline/offline_pipeline.py",
+          "roles": {
+            "data": "PromptPipeline prompt encoding, metadata preservation and DataLoader"
+          },
+          "lines": "119-185",
+          "permanentUrl": "https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/pipeline/offline_pipeline.py"
+        },
+        {
+          "path": "trlx/trainer/accelerate_ppo_trainer.py",
+          "roles": {
+            "rollout": "make_experience",
+            "reward": "reward_fn on main process, token score scatter",
+            "advantages": "config.method.get_advantages_and_returns",
+            "loss": "loss",
+            "checkpoint": "save_pretrained"
+          },
+          "lines": "127-204, 251-524, 526",
+          "permanentUrl": "https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/trainer/accelerate_ppo_trainer.py"
+        },
+        {
+          "path": "trlx/models/modeling_ppo.py",
+          "roles": {
+            "advantages": "GAE",
+            "loss": "clipped PPO actor/value losses"
+          },
+          "lines": "136-227",
+          "permanentUrl": "https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/models/modeling_ppo.py"
+        },
+        {
+          "path": "trlx/trainer/accelerate_base_trainer.py",
+          "roles": {
+            "backprop": "learn, accelerator.backward, optimizer/scheduler",
+            "checkpoint": "save_pretrained and Accelerate state"
+          },
+          "lines": "284, 518-610",
+          "permanentUrl": "https://github.com/CarperAI/trlx/blob/3340c2f3a56d1d14fdd5f13ad575121fa26b6d92/trlx/trainer/accelerate_base_trainer.py"
+        }
+      ]
+    },
+    {
+      "project": "DeepSpeed-Chat in DeepSpeedExamples",
+      "repository": "https://github.com/deepspeedai/DeepSpeedExamples",
+      "ref": "master",
+      "commit": "0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746",
+      "methods": [
+        "PPO",
+        "DPO"
+      ],
+      "files": [
+        {
+          "path": "applications/DeepSpeed-Chat/dschat/rlhf/ppo_trainer.py",
+          "roles": {
+            "rollout": "_generate_sequence / generate_experience",
+            "reward": "compute_rewards terminal score plus token KL",
+            "advantages": "get_advantages_and_returns",
+            "loss": "actor_loss_fn / critic_loss_fn",
+            "update": "train_rlhf"
+          },
+          "lines": "74-194, 196-320",
+          "permanentUrl": "https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/dschat/rlhf/ppo_trainer.py"
+        },
+        {
+          "path": "applications/DeepSpeed-Chat/training/step3_rlhf_finetuning/main.py",
+          "roles": {
+            "entry": "PPO run loop",
+            "data": "prompt dataset",
+            "checkpoint": "periodic actor/critic save"
+          },
+          "lines": "399, 513-640",
+          "permanentUrl": "https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/training/step3_rlhf_finetuning/main.py"
+        },
+        {
+          "path": "applications/DeepSpeed-Chat/training/step3_rlhf_finetuning/README.md",
+          "roles": {
+            "reproductionNote": "documented PPO batch-size and epoch instability observations"
+          },
+          "lines": "69-80",
+          "permanentUrl": "https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/training/step3_rlhf_finetuning/README.md"
+        },
+        {
+          "path": "applications/DeepSpeed-Chat/training/step2_dpo_finetuning/main.py",
+          "roles": {
+            "data": "preference pairs",
+            "loss": "masked sequence log-prob sums and DPO update"
+          },
+          "lines": "219-240, 456-510",
+          "permanentUrl": "https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/training/step2_dpo_finetuning/main.py"
+        },
+        {
+          "path": "applications/DeepSpeed-Chat/dschat/rlhf/rlhf_engine.py",
+          "roles": {
+            "models": "actor/reference/reward/critic initialization; ZeRO/offload options"
+          },
+          "lines": "1-220",
+          "permanentUrl": "https://github.com/deepspeedai/DeepSpeedExamples/blob/0c6dd5ed1ec0f0967ae0564534ecfa6f157c6746/applications/DeepSpeed-Chat/dschat/rlhf/rlhf_engine.py"
+        }
+      ]
+    },
+    {
+      "project": "OpenRLHF",
+      "repository": "https://github.com/OpenRLHF/OpenRLHF",
+      "ref": "main",
+      "commit": "dc2a7ad326f619fc5a47737ea47d1920ce2c0b53",
+      "methods": [
+        "PPO",
+        "RLOO",
+        "group-normalized estimators",
+        "GSPO policy loss"
+      ],
+      "files": [
+        {
+          "path": "openrlhf/cli/train_ppo_ray.py",
+          "roles": {
+            "entry": "Ray strategy and role-group creation"
+          },
+          "lines": "19-95",
+          "permanentUrl": "https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/cli/train_ppo_ray.py"
+        },
+        {
+          "path": "openrlhf/trainer/ppo_trainer.py",
+          "roles": {
+            "pipeline": "train_step, ppo_train, vLLM sync, checkpoints"
+          },
+          "lines": "213-264, 266-383, 384-414, 503-565",
+          "permanentUrl": "https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/trainer/ppo_trainer.py"
+        },
+        {
+          "path": "openrlhf/trainer/ppo_utils/experience_maker.py",
+          "roles": {
+            "rollout": "make_experience_batch",
+            "reward": "reward/actor/ref/critic forwards",
+            "advantage": "compute_advantages_and_returns / estimator dispatch"
+          },
+          "lines": "80-96, 112-233, 238-387",
+          "permanentUrl": "https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/trainer/ppo_utils/experience_maker.py"
+        },
+        {
+          "path": "openrlhf/models/loss.py",
+          "roles": {
+            "reduction": "aggregate_loss",
+            "loss": "PolicyLoss PPO/GSPO and off-policy gates"
+          },
+          "lines": "11-39, 116-259",
+          "permanentUrl": "https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/models/loss.py"
+        },
+        {
+          "path": "openrlhf/trainer/ray/ppo_actor.py",
+          "roles": {
+            "update": "replay batch, current actor loss, backward/optimizer"
+          },
+          "lines": "153-205, 259-359, 608-617",
+          "permanentUrl": "https://github.com/OpenRLHF/OpenRLHF/blob/dc2a7ad326f619fc5a47737ea47d1920ce2c0b53/openrlhf/trainer/ray/ppo_actor.py"
+        }
+      ]
+    },
+    {
+      "project": "Volcengine verl",
+      "repository": "https://github.com/volcengine/verl",
+      "ref": "main",
+      "commit": "2ab35292039a51175a4b3d3b3b2d76e951a0d3e4",
+      "methods": [
+        "PPO",
+        "GRPO",
+        "synchronous/asynchronous trainer modes"
+      ],
+      "files": [
+        {
+          "path": "verl/trainer/main_ppo.py",
+          "roles": {
+            "entry": "TaskRunnerV1, Transfer Queue, AgentLoopManager"
+          },
+          "lines": "35-178",
+          "permanentUrl": "https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/main_ppo.py"
+        },
+        {
+          "path": "verl/trainer/ppo/v1/trainer_base.py",
+          "roles": {
+            "data": "replay buffer step",
+            "reward": "_compute_reward_colocate",
+            "rolloutLogProb": "_compute_old_log_prob",
+            "reference": "_compute_ref_log_prob",
+            "advantage": "_compute_advantage",
+            "update": "_update_actor",
+            "checkpoint": "_save_checkpoint"
+          },
+          "lines": "534-613, 949-1010, 1635-1803, 1828-1871",
+          "permanentUrl": "https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/v1/trainer_base.py"
+        },
+        {
+          "path": "verl/trainer/ppo/core_algos.py",
+          "roles": {
+            "advantage": "compute_grpo_outcome_advantage",
+            "reduction": "agg_loss"
+          },
+          "lines": "268-335, 1140-1206",
+          "permanentUrl": "https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/trainer/ppo/core_algos.py"
+        },
+        {
+          "path": "verl/workers/engine_workers.py",
+          "roles": {
+            "update": "train_mini_batch delegates to actor engine"
+          },
+          "lines": "276-297",
+          "permanentUrl": "https://github.com/volcengine/verl/blob/2ab35292039a51175a4b3d3b3b2d76e951a0d3e4/verl/workers/engine_workers.py"
+        }
+      ]
+    },
+    {
+      "project": "THUDM slime",
+      "repository": "https://github.com/THUDM/slime",
+      "ref": "main",
+      "commit": "540ea919e45b8b929198abce008a103be9cfc779",
+      "methods": [
+        "PPO",
+        "GRPO",
+        "GSPO",
+        "CISPO",
+        "REINFORCE++ variants",
+        "asynchronous rollout"
+      ],
+      "files": [
+        {
+          "path": "train.py",
+          "roles": {
+            "entry": "generate -> actor/critic async_train -> completion -> checkpoint"
+          },
+          "lines": "13-83, 102",
+          "permanentUrl": "https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/train.py"
+        },
+        {
+          "path": "slime/ray/rollout.py",
+          "roles": {
+            "rollout": "RolloutManager.generate/_generate/_get_rollout_data and recovery"
+          },
+          "lines": "317-390, 503-557",
+          "permanentUrl": "https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/ray/rollout.py"
+        },
+        {
+          "path": "slime/data/batch_builder.py",
+          "roles": {
+            "data": "persisted selection/conversion plan",
+            "reward": "_post_process_rewards group statistics",
+            "conversion": "convert"
+          },
+          "lines": "48-110, 207-270",
+          "permanentUrl": "https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/data/batch_builder.py"
+        },
+        {
+          "path": "slime/rollout/sglang_rollout.py",
+          "roles": {
+            "rollout": "generate_and_rm_group, generate_rollout_async"
+          },
+          "lines": "388-439, 492-545",
+          "permanentUrl": "https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/rollout/sglang_rollout.py"
+        },
+        {
+          "path": "slime/backends/megatron_utils/loss.py",
+          "roles": {
+            "advantage": "compute_advantages_and_returns",
+            "loss": "policy_loss_function, loss_function"
+          },
+          "lines": "725-850, 1128-1245, 1495-1535",
+          "permanentUrl": "https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/backends/megatron_utils/loss.py"
+        },
+        {
+          "path": "slime/backends/megatron_utils/actor.py",
+          "roles": {
+            "update": "train/train_actor/train_critic",
+            "checkpoint": "save_model",
+            "sync": "update_weights"
+          },
+          "lines": "400-485, 602-640",
+          "permanentUrl": "https://github.com/THUDM/slime/blob/540ea919e45b8b929198abce008a103be9cfc779/slime/backends/megatron_utils/actor.py"
+        }
+      ]
+    },
+    {
+      "project": "Hugging Face open-r1",
+      "repository": "https://github.com/huggingface/open-r1",
+      "ref": "main",
+      "commit": "5b6ff22b3fb7aa069c54866e517f39dfc3160e09",
+      "methods": [
+        "TRL GRPO task/reward recipe"
+      ],
+      "files": [
+        {
+          "path": "src/open_r1/grpo.py",
+          "roles": {
+            "entry": "dataset map, reward registry, GRPOTrainer construction"
+          },
+          "lines": "35-124",
+          "permanentUrl": "https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/src/open_r1/grpo.py"
+        },
+        {
+          "path": "setup.py",
+          "roles": {
+            "dependency": "trl[vllm]==0.18.0 pins the GRPO kernel used by the recipe"
+          },
+          "lines": "72",
+          "permanentUrl": "https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/setup.py"
+        },
+        {
+          "path": "src/open_r1/rewards.py",
+          "roles": {
+            "reward": "accuracy_reward, format_reward, reward registry"
+          },
+          "lines": "40-111, 646-690",
+          "permanentUrl": "https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/src/open_r1/rewards.py"
+        },
+        {
+          "path": "recipes/Qwen2.5-1.5B-Instruct/grpo/config_demo.yaml",
+          "roles": {
+            "config": "vLLM, generation count, sequence limits, reward weights"
+          },
+          "lines": "1-52",
+          "permanentUrl": "https://github.com/huggingface/open-r1/blob/5b6ff22b3fb7aa069c54866e517f39dfc3160e09/recipes/Qwen2.5-1.5B-Instruct/grpo/config_demo.yaml"
+        }
+      ]
+    },
+    {
+      "project": "MiniMind",
+      "repository": "https://github.com/jingyaogong/minimind",
+      "ref": "master",
+      "commit": "233d00fa068ec2b8c0d4f07b703934d6391a5a73",
+      "methods": [
+        "DPO",
+        "PPO",
+        "GRPO",
+        "PyTorch/SGLang rollout"
+      ],
+      "files": [
+        {
+          "path": "trainer/train_dpo.py",
+          "roles": {
+            "data": "DPODataset, chosen/rejected",
+            "loss": "masked DPO sequence log-prob sums",
+            "backprop": "AMP/optimizer",
+            "checkpoint": "model and trainer state"
+          },
+          "lines": "45-119, 173-214",
+          "permanentUrl": "https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/train_dpo.py"
+        },
+        {
+          "path": "trainer/train_ppo.py",
+          "roles": {
+            "method": "separate actor/critic PPO training entry"
+          },
+          "lines": "239-250, 407-409",
+          "permanentUrl": "https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/train_ppo.py"
+        },
+        {
+          "path": "trainer/train_grpo.py",
+          "roles": {
+            "reward": "rule and reward-model scores",
+            "advantage": "group normalization",
+            "loss": "masked token loss then per-sequence mean",
+            "backprop": "optimizer, checkpoint, rollout policy sync"
+          },
+          "lines": "37-68, 71-150, 180-196, 245-322",
+          "permanentUrl": "https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/train_grpo.py"
+        },
+        {
+          "path": "trainer/rollout_engine.py",
+          "roles": {
+            "rollout": "TorchRolloutEngine and SGLangRolloutEngine API"
+          },
+          "lines": "23-150",
+          "permanentUrl": "https://github.com/jingyaogong/minimind/blob/233d00fa068ec2b8c0d4f07b703934d6391a5a73/trainer/rollout_engine.py"
+        }
+      ]
+    }
+  ]
+}

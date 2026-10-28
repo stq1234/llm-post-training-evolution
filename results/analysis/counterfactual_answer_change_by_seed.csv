@@ -1,0 +1,13 @@
+﻿method,seed,expected_pairs,gold_changed_pairs,gold_unchanged_pairs,complete_pairs,changed_strict_answer_available_pairs,changed_strict_answer_unavailable_pairs,changed_behavior_successes,changed_behavior_denominator,changed_behavior_rate,correct_answer_change_successes,correct_answer_change_denominator,correct_answer_change_rate,unchanged_strict_answer_available_pairs,unchanged_strict_answer_unavailable_pairs,unchanged_consistency_successes,unchanged_consistency_denominator,unchanged_answer_consistency_rate
+baseline,,80,80,0,80,0,80,0,80,0.0,0,80,0.0,0,0,0,0,
+sft,17,80,80,0,80,80,0,57,80,0.7125,22,80,0.275,0,0,0,0,
+sft,29,80,80,0,80,80,0,71,80,0.8875,24,80,0.3,0,0,0,0,
+sft_long,17,80,80,0,80,80,0,52,80,0.65,40,80,0.5,0,0,0,0,
+dpo,17,80,80,0,80,65,15,37,80,0.4625,18,80,0.225,0,0,0,0,
+dpo,29,80,80,0,80,74,6,46,80,0.575,24,80,0.3,0,0,0,0,
+online_dpo,17,80,80,0,80,80,0,42,80,0.525,17,80,0.2125,0,0,0,0,
+online_dpo,29,80,80,0,80,80,0,59,80,0.7375,28,80,0.35,0,0,0,0,
+grpo,17,80,80,0,80,80,0,52,80,0.65,24,80,0.3,0,0,0,0,
+grpo,29,80,80,0,80,80,0,71,80,0.8875,27,80,0.3375,0,0,0,0,
+grpo_format,17,80,80,0,80,80,0,46,80,0.575,7,80,0.0875,0,0,0,0,
+grpo_format,29,80,80,0,80,80,0,74,80,0.925,24,80,0.3,0,0,0,0,

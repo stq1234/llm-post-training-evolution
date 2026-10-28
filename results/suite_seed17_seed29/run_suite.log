@@ -1,0 +1,363 @@
+[2026-10-28 18:13:04] SUITE LOCKED: seed17/29, SFT16, DPO64/accum4, OnlineDPO budget128, GRPO 128 updates x 2 epochs; validation and test splits are reporting-only.
+[2026-10-28 18:13:04] SKIP complete evaluation results/eval/base/validation
+[2026-10-28 18:13:04] START evaluate base/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/base/test_id --batch-size 8 --adapter none
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:14:21] EXIT evaluate base/test_id: 0, wall=76.8s
+[2026-10-28 18:14:21] START evaluate base/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/base/test_ood --batch-size 8 --adapter none
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:15:29] EXIT evaluate base/test_ood: 0, wall=68.4s
+[2026-10-28 18:15:29] START evaluate base/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/base/test_counterfactual --batch-size 8 --adapter none
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:16:31] EXIT evaluate base/test_counterfactual: 0, wall=61.9s
+[2026-10-28 18:16:31] MODEL COMPLETE base: {"test_counterfactual": {"answer_correct": 0.0, "evidence_exact": 0.0, "evidence_f1": 0.0, "format_valid": 0.0, "joint_correct": 0.0}, "test_id": {"answer_correct": 0.0, "evidence_exact": 0.0, "evidence_f1": 0.0, "format_valid": 0.0, "joint_correct": 0.0}, "test_ood": {"answer_correct": 0.0, "evidence_exact": 0.0, "evidence_f1": 0.0, "format_valid": 0.0, "joint_correct": 0.0}, "validation": {"answer_correct": 0.0, "evidence_exact": 0.0, "evidence_f1": 0.0, "format_valid": 0.0, "joint_correct": 0.0}}
+[2026-10-28 18:16:31] SKIP complete evaluation results/eval/sft_long_seed17/validation
+[2026-10-28 18:16:31] START evaluate sft_long_seed17/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/sft_long_seed17/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_long_seed17\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:17:09] EXIT evaluate sft_long_seed17/test_id: 0, wall=37.8s
+[2026-10-28 18:17:09] START evaluate sft_long_seed17/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/sft_long_seed17/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_long_seed17\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:18:10] EXIT evaluate sft_long_seed17/test_ood: 0, wall=60.6s
+[2026-10-28 18:18:10] START evaluate sft_long_seed17/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/sft_long_seed17/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_long_seed17\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:18:59] EXIT evaluate sft_long_seed17/test_counterfactual: 0, wall=49.5s
+[2026-10-28 18:18:59] MODEL COMPLETE sft_long_seed17: {"test_counterfactual": {"answer_correct": 0.75, "evidence_exact": 0.84375, "evidence_f1": 0.892708, "format_valid": 1.0, "joint_correct": 0.70625}, "test_id": {"answer_correct": 0.99375, "evidence_exact": 1.0, "evidence_f1": 1.0, "format_valid": 1.0, "joint_correct": 0.99375}, "test_ood": {"answer_correct": 0.8875, "evidence_exact": 0.85625, "evidence_f1": 0.901042, "format_valid": 1.0, "joint_correct": 0.83125}, "validation": {"answer_correct": 0.979167, "evidence_exact": 1.0, "evidence_f1": 1.0, "format_valid": 1.0, "joint_correct": 0.979167}}
+[2026-10-28 18:18:59] SKIP complete evaluation results/eval/sft_seed17/validation
+[2026-10-28 18:18:59] START evaluate sft_seed17/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/sft_seed17/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed17\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:19:33] EXIT evaluate sft_seed17/test_id: 0, wall=34.1s
+[2026-10-28 18:19:33] START evaluate sft_seed17/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/sft_seed17/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed17\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:20:31] EXIT evaluate sft_seed17/test_ood: 0, wall=58.0s
+[2026-10-28 18:20:31] START evaluate sft_seed17/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/sft_seed17/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed17\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:21:18] EXIT evaluate sft_seed17/test_counterfactual: 0, wall=47.0s
+[2026-10-28 18:21:18] MODEL COMPLETE sft_seed17: {"test_counterfactual": {"answer_correct": 0.40625, "evidence_exact": 0.56875, "evidence_f1": 0.77125, "format_valid": 1.0, "joint_correct": 0.3125}, "test_id": {"answer_correct": 0.7125, "evidence_exact": 0.45625, "evidence_f1": 0.665536, "format_valid": 1.0, "joint_correct": 0.3875}, "test_ood": {"answer_correct": 0.5375, "evidence_exact": 0.35625, "evidence_f1": 0.610506, "format_valid": 1.0, "joint_correct": 0.30625}, "validation": {"answer_correct": 0.739583, "evidence_exact": 0.5, "evidence_f1": 0.741518, "format_valid": 0.989583, "joint_correct": 0.4375}}
+[2026-10-28 18:21:18] START train results/sft_seed29: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train sft --seed 29 --steps 16 --batch-size 1 --grad-accum 4 --learning-rate 0.0002 --output results/sft_seed29
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 18:21:46] EXIT train results/sft_seed29: 0, wall=27.6s
+[2026-10-28 18:21:46] START evaluate sft_seed29/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/sft_seed29/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:22:24] EXIT evaluate sft_seed29/validation: 0, wall=37.6s
+[2026-10-28 18:22:24] START evaluate sft_seed29/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/sft_seed29/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:23:27] EXIT evaluate sft_seed29/test_id: 0, wall=63.9s
+[2026-10-28 18:23:27] START evaluate sft_seed29/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/sft_seed29/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:24:16] EXIT evaluate sft_seed29/test_ood: 0, wall=49.0s
+[2026-10-28 18:24:16] START evaluate sft_seed29/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/sft_seed29/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:24:40] EXIT evaluate sft_seed29/test_counterfactual: 0, wall=23.1s
+[2026-10-28 18:24:40] MODEL COMPLETE sft_seed29: {"test_counterfactual": {"answer_correct": 0.4375, "evidence_exact": 0.45625, "evidence_f1": 0.690417, "format_valid": 1.0, "joint_correct": 0.33125}, "test_id": {"answer_correct": 0.7125, "evidence_exact": 0.3625, "evidence_f1": 0.61997, "format_valid": 0.9875, "joint_correct": 0.3375}, "test_ood": {"answer_correct": 0.575, "evidence_exact": 0.4, "evidence_f1": 0.602649, "format_valid": 0.98125, "joint_correct": 0.3625}, "validation": {"answer_correct": 0.75, "evidence_exact": 0.4375, "evidence_f1": 0.686607, "format_valid": 1.0, "joint_correct": 0.395833}}
+[2026-10-28 18:24:40] START train results/dpo_seed17: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train dpo --seed 17 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed17\adapter --output results/dpo_seed17 --steps 64 --grad-accum 4 --learning-rate 0.00005
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 18:25:53] EXIT train results/dpo_seed17: 0, wall=73.7s
+[2026-10-28 18:25:53] START evaluate dpo_seed17/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/dpo_seed17/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:26:10] EXIT evaluate dpo_seed17/validation: 0, wall=16.3s
+[2026-10-28 18:26:10] START evaluate dpo_seed17/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/dpo_seed17/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:26:40] EXIT evaluate dpo_seed17/test_id: 0, wall=30.8s
+[2026-10-28 18:26:40] START evaluate dpo_seed17/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/dpo_seed17/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:27:02] EXIT evaluate dpo_seed17/test_ood: 0, wall=21.6s
+[2026-10-28 18:27:02] START evaluate dpo_seed17/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/dpo_seed17/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:27:22] EXIT evaluate dpo_seed17/test_counterfactual: 0, wall=19.9s
+[2026-10-28 18:27:22] MODEL COMPLETE dpo_seed17: {"test_counterfactual": {"answer_correct": 0.3875, "evidence_exact": 0.23125, "evidence_f1": 0.379524, "format_valid": 0.9, "joint_correct": 0.23125}, "test_id": {"answer_correct": 0.76875, "evidence_exact": 0.275, "evidence_f1": 0.52753, "format_valid": 0.88125, "joint_correct": 0.275}, "test_ood": {"answer_correct": 0.71875, "evidence_exact": 0.26875, "evidence_f1": 0.496637, "format_valid": 0.9125, "joint_correct": 0.2625}, "validation": {"answer_correct": 0.78125, "evidence_exact": 0.34375, "evidence_f1": 0.54256, "format_valid": 0.864583, "joint_correct": 0.3125}}
+[2026-10-28 18:27:22] START train results/online_dpo_seed17: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train online_dpo --seed 17 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed17\adapter --output results/online_dpo_seed17 --steps 64 --grad-accum 2 --max-rollout-prompts 128 --learning-rate 0.00005 --reward-mode full
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 18:29:02] EXIT train results/online_dpo_seed17: 0, wall=100.1s
+[2026-10-28 18:29:02] START evaluate online_dpo_seed17/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/online_dpo_seed17/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:29:17] EXIT evaluate online_dpo_seed17/validation: 0, wall=15.3s
+[2026-10-28 18:29:17] START evaluate online_dpo_seed17/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/online_dpo_seed17/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:29:39] EXIT evaluate online_dpo_seed17/test_id: 0, wall=21.0s
+[2026-10-28 18:29:39] START evaluate online_dpo_seed17/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/online_dpo_seed17/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:29:59] EXIT evaluate online_dpo_seed17/test_ood: 0, wall=20.4s
+[2026-10-28 18:29:59] START evaluate online_dpo_seed17/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/online_dpo_seed17/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:30:17] EXIT evaluate online_dpo_seed17/test_counterfactual: 0, wall=18.2s
+[2026-10-28 18:30:17] MODEL COMPLETE online_dpo_seed17: {"test_counterfactual": {"answer_correct": 0.45, "evidence_exact": 0.35625, "evidence_f1": 0.546488, "format_valid": 1.0, "joint_correct": 0.35}, "test_id": {"answer_correct": 0.8, "evidence_exact": 0.40625, "evidence_f1": 0.621964, "format_valid": 1.0, "joint_correct": 0.40625}, "test_ood": {"answer_correct": 0.63125, "evidence_exact": 0.3875, "evidence_f1": 0.580625, "format_valid": 1.0, "joint_correct": 0.36875}, "validation": {"answer_correct": 0.875, "evidence_exact": 0.4375, "evidence_f1": 0.662649, "format_valid": 1.0, "joint_correct": 0.416667}}
+[2026-10-28 18:30:17] START train results/grpo_seed17: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train grpo --seed 17 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed17\adapter --output results/grpo_seed17 --steps 128 --grad-accum 2 --update-epochs 2 --learning-rate 0.00001 --reward-mode full
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 18:36:15] EXIT train results/grpo_seed17: 0, wall=358.3s
+[2026-10-28 18:36:15] START evaluate grpo_seed17/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/grpo_seed17/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:36:33] EXIT evaluate grpo_seed17/validation: 0, wall=17.1s
+[2026-10-28 18:36:33] START evaluate grpo_seed17/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/grpo_seed17/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:36:58] EXIT evaluate grpo_seed17/test_id: 0, wall=25.5s
+[2026-10-28 18:36:58] START evaluate grpo_seed17/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/grpo_seed17/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:37:24] EXIT evaluate grpo_seed17/test_ood: 0, wall=25.6s
+[2026-10-28 18:37:24] START evaluate grpo_seed17/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/grpo_seed17/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:37:54] EXIT evaluate grpo_seed17/test_counterfactual: 0, wall=30.4s
+[2026-10-28 18:37:54] MODEL COMPLETE grpo_seed17: {"test_counterfactual": {"answer_correct": 0.475, "evidence_exact": 0.59375, "evidence_f1": 0.79994, "format_valid": 1.0, "joint_correct": 0.41875}, "test_id": {"answer_correct": 0.8375, "evidence_exact": 0.49375, "evidence_f1": 0.725179, "format_valid": 1.0, "joint_correct": 0.4375}, "test_ood": {"answer_correct": 0.60625, "evidence_exact": 0.39375, "evidence_f1": 0.631339, "format_valid": 1.0, "joint_correct": 0.3625}, "validation": {"answer_correct": 0.875, "evidence_exact": 0.572917, "evidence_f1": 0.784623, "format_valid": 1.0, "joint_correct": 0.5}}
+[2026-10-28 18:37:54] START train results/grpo_format_seed17: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train grpo --seed 17 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed17\adapter --output results/grpo_format_seed17 --steps 128 --grad-accum 2 --update-epochs 2 --learning-rate 0.00001 --reward-mode format
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Lib\site-packages\peft\utils\other.py:1110: UserWarning: Unable to fetch remote file due to the following error (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /Qwen/Qwen2.5-0.5B-Instruct/resolve/main/config.json (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))"), '(Request ID: e1a8f744-352b-4abb-a022-cf0c05b21edb)') - silently ignoring the lookup for the file config.json in Qwen/Qwen2.5-0.5B-Instruct.
+  warnings.warn(
+D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Lib\site-packages\peft\utils\save_and_load.py:236: UserWarning: Could not find a config file in Qwen/Qwen2.5-0.5B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+[2026-10-28 18:49:22] EXIT train results/grpo_format_seed17: 0, wall=687.3s
+[2026-10-28 18:49:22] START evaluate grpo_format_seed17/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/grpo_format_seed17/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:50:05] EXIT evaluate grpo_format_seed17/validation: 0, wall=43.0s
+[2026-10-28 18:50:05] START evaluate grpo_format_seed17/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/grpo_format_seed17/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:51:02] EXIT evaluate grpo_format_seed17/test_id: 0, wall=57.0s
+[2026-10-28 18:51:02] START evaluate grpo_format_seed17/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/grpo_format_seed17/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:51:57] EXIT evaluate grpo_format_seed17/test_ood: 0, wall=55.4s
+[2026-10-28 18:51:57] START evaluate grpo_format_seed17/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/grpo_format_seed17/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed17\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:52:50] EXIT evaluate grpo_format_seed17/test_counterfactual: 0, wall=53.0s
+[2026-10-28 18:52:50] MODEL COMPLETE grpo_format_seed17: {"test_counterfactual": {"answer_correct": 0.34375, "evidence_exact": 0.44375, "evidence_f1": 0.655417, "format_valid": 1.0, "joint_correct": 0.2625}, "test_id": {"answer_correct": 0.61875, "evidence_exact": 0.3625, "evidence_f1": 0.565387, "format_valid": 1.0, "joint_correct": 0.31875}, "test_ood": {"answer_correct": 0.5, "evidence_exact": 0.3375, "evidence_f1": 0.544315, "format_valid": 1.0, "joint_correct": 0.3125}, "validation": {"answer_correct": 0.677083, "evidence_exact": 0.46875, "evidence_f1": 0.691071, "format_valid": 1.0, "joint_correct": 0.395833}}
+[2026-10-28 18:52:50] START train results/dpo_seed29: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train dpo --seed 29 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter --output results/dpo_seed29 --steps 64 --grad-accum 4 --learning-rate 0.00005
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 18:55:48] EXIT train results/dpo_seed29: 0, wall=178.4s
+[2026-10-28 18:55:48] START evaluate dpo_seed29/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/dpo_seed29/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:56:15] EXIT evaluate dpo_seed29/validation: 0, wall=26.7s
+[2026-10-28 18:56:15] START evaluate dpo_seed29/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/dpo_seed29/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:57:08] EXIT evaluate dpo_seed29/test_id: 0, wall=53.2s
+[2026-10-28 18:57:08] START evaluate dpo_seed29/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/dpo_seed29/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:57:40] EXIT evaluate dpo_seed29/test_ood: 0, wall=31.8s
+[2026-10-28 18:57:40] START evaluate dpo_seed29/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/dpo_seed29/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 18:58:45] EXIT evaluate dpo_seed29/test_counterfactual: 0, wall=65.2s
+[2026-10-28 18:58:45] MODEL COMPLETE dpo_seed29: {"test_counterfactual": {"answer_correct": 0.44375, "evidence_exact": 0.09375, "evidence_f1": 0.19494, "format_valid": 0.9625, "joint_correct": 0.0875}, "test_id": {"answer_correct": 0.6, "evidence_exact": 0.2125, "evidence_f1": 0.421339, "format_valid": 0.975, "joint_correct": 0.175}, "test_ood": {"answer_correct": 0.58125, "evidence_exact": 0.36875, "evidence_f1": 0.529405, "format_valid": 0.93125, "joint_correct": 0.31875}, "validation": {"answer_correct": 0.572917, "evidence_exact": 0.166667, "evidence_f1": 0.391468, "format_valid": 0.979167, "joint_correct": 0.145833}}
+[2026-10-28 18:58:45] START train results/online_dpo_seed29: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train online_dpo --seed 29 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter --output results/online_dpo_seed29 --steps 64 --grad-accum 2 --max-rollout-prompts 128 --learning-rate 0.00005 --reward-mode full
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 19:03:37] EXIT train results/online_dpo_seed29: 0, wall=291.3s
+[2026-10-28 19:03:37] START evaluate online_dpo_seed29/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/online_dpo_seed29/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:04:15] EXIT evaluate online_dpo_seed29/validation: 0, wall=38.3s
+[2026-10-28 19:04:15] START evaluate online_dpo_seed29/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/online_dpo_seed29/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:05:12] EXIT evaluate online_dpo_seed29/test_id: 0, wall=56.9s
+[2026-10-28 19:05:12] START evaluate online_dpo_seed29/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/online_dpo_seed29/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:05:56] EXIT evaluate online_dpo_seed29/test_ood: 0, wall=43.6s
+[2026-10-28 19:05:56] START evaluate online_dpo_seed29/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/online_dpo_seed29/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\online_dpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:06:16] EXIT evaluate online_dpo_seed29/test_counterfactual: 0, wall=20.9s
+[2026-10-28 19:06:16] MODEL COMPLETE online_dpo_seed29: {"test_counterfactual": {"answer_correct": 0.54375, "evidence_exact": 0.40625, "evidence_f1": 0.571131, "format_valid": 1.0, "joint_correct": 0.40625}, "test_id": {"answer_correct": 0.79375, "evidence_exact": 0.33125, "evidence_f1": 0.459375, "format_valid": 1.0, "joint_correct": 0.325}, "test_ood": {"answer_correct": 0.625, "evidence_exact": 0.3875, "evidence_f1": 0.471667, "format_valid": 1.0, "joint_correct": 0.3625}, "validation": {"answer_correct": 0.822917, "evidence_exact": 0.40625, "evidence_f1": 0.525347, "format_valid": 1.0, "joint_correct": 0.40625}}
+[2026-10-28 19:06:16] START train results/grpo_seed29: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train grpo --seed 29 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter --output results/grpo_seed29 --steps 128 --grad-accum 2 --update-epochs 2 --learning-rate 0.00001 --reward-mode full
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 19:13:03] EXIT train results/grpo_seed29: 0, wall=406.8s
+[2026-10-28 19:13:03] START evaluate grpo_seed29/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/grpo_seed29/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:13:36] EXIT evaluate grpo_seed29/validation: 0, wall=32.8s
+[2026-10-28 19:13:36] START evaluate grpo_seed29/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/grpo_seed29/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:14:06] EXIT evaluate grpo_seed29/test_id: 0, wall=30.2s
+[2026-10-28 19:14:06] START evaluate grpo_seed29/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/grpo_seed29/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:15:18] EXIT evaluate grpo_seed29/test_ood: 0, wall=72.1s
+[2026-10-28 19:15:18] START evaluate grpo_seed29/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/grpo_seed29/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:16:14] EXIT evaluate grpo_seed29/test_counterfactual: 0, wall=55.8s
+[2026-10-28 19:16:14] MODEL COMPLETE grpo_seed29: {"test_counterfactual": {"answer_correct": 0.4875, "evidence_exact": 0.44375, "evidence_f1": 0.656488, "format_valid": 1.0, "joint_correct": 0.36875}, "test_id": {"answer_correct": 0.74375, "evidence_exact": 0.36875, "evidence_f1": 0.601548, "format_valid": 1.0, "joint_correct": 0.35625}, "test_ood": {"answer_correct": 0.60625, "evidence_exact": 0.4, "evidence_f1": 0.586458, "format_valid": 1.0, "joint_correct": 0.36875}, "validation": {"answer_correct": 0.8125, "evidence_exact": 0.447917, "evidence_f1": 0.674206, "format_valid": 1.0, "joint_correct": 0.427083}}
+[2026-10-28 19:16:14] START train results/grpo_format_seed29: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train grpo --seed 29 --batch-size 1 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\sft_seed29\adapter --output results/grpo_format_seed29 --steps 128 --grad-accum 2 --update-epochs 2 --learning-rate 0.00001 --reward-mode format
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+[2026-10-28 19:24:11] EXIT train results/grpo_format_seed29: 0, wall=476.5s
+[2026-10-28 19:24:11] START evaluate grpo_format_seed29/validation: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/validation.jsonl --output results/eval/grpo_format_seed29/validation --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:24:28] EXIT evaluate grpo_format_seed29/validation: 0, wall=17.6s
+[2026-10-28 19:24:28] START evaluate grpo_format_seed29/test_id: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_id.jsonl --output results/eval/grpo_format_seed29/test_id --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:24:49] EXIT evaluate grpo_format_seed29/test_id: 0, wall=20.8s
+[2026-10-28 19:24:49] START evaluate grpo_format_seed29/test_ood: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_ood.jsonl --output results/eval/grpo_format_seed29/test_ood --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:25:31] EXIT evaluate grpo_format_seed29/test_ood: 0, wall=41.3s
+[2026-10-28 19:25:31] START evaluate grpo_format_seed29/test_counterfactual: D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\.venv\Scripts\python.exe -m src.train evaluate --input data/test_counterfactual.jsonl --output results/eval/grpo_format_seed29/test_counterfactual --batch-size 8 --adapter D:\北京大学\硕士\大语言模型与应用\作业5_后训练技术演进\results\grpo_format_seed29\adapter\policy
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+D:\Softs\anaconda\Lib\site-packages\transformers\generation\configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[2026-10-28 19:26:22] EXIT evaluate grpo_format_seed29/test_counterfactual: 0, wall=51.2s
+[2026-10-28 19:26:22] MODEL COMPLETE grpo_format_seed29: {"test_counterfactual": {"answer_correct": 0.43125, "evidence_exact": 0.41875, "evidence_f1": 0.633899, "format_valid": 1.0, "joint_correct": 0.33125}, "test_id": {"answer_correct": 0.73125, "evidence_exact": 0.3375, "evidence_f1": 0.574464, "format_valid": 1.0, "joint_correct": 0.33125}, "test_ood": {"answer_correct": 0.58125, "evidence_exact": 0.375, "evidence_f1": 0.588958, "format_valid": 1.0, "joint_correct": 0.35625}, "validation": {"answer_correct": 0.760417, "evidence_exact": 0.4375, "evidence_f1": 0.69628, "format_valid": 1.0, "joint_correct": 0.40625}}
+[2026-10-28 19:26:22] SUITE COMPLETE models=12, wall=4397.7s

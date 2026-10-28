@@ -1,0 +1,36 @@
+{
+  "method": "evaluate",
+  "input": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\data\\validation.jsonl",
+  "examples": 96,
+  "batch_size": 8,
+  "generated_tokens": 1342,
+  "mean_metrics": {
+    "format_valid": 1.0,
+    "answer_correct": 0.7604166666666666,
+    "evidence_exact": 0.4375,
+    "evidence_f1": 0.6962797619047615,
+    "joint_correct": 0.40625
+  },
+  "prediction_file": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\eval\\grpo_format_seed29\\validation\\predictions.jsonl",
+  "wall_time_seconds": 15.036,
+  "device": "cuda:0",
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "adapter_path": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\grpo_format_seed29\\adapter\\policy",
+  "adapter_config": {
+    "active_adapter": "default",
+    "rank": 8,
+    "alpha": 16,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "dropout": 0.0
+  },
+  "parameters": {
+    "total_parameters": 494573440,
+    "trainable_parameters": 0
+  },
+  "peak_cuda_allocated_bytes": 1080118272,
+  "peak_cuda_reserved_bytes": 1138753536
+}

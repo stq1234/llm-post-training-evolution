@@ -1,0 +1,32 @@
+{
+  "method": "sft",
+  "seed": 17,
+  "input": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\data\\train_sft.jsonl",
+  "output": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\sft_seed17",
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "adapter_input": null,
+  "device": "cuda:0",
+  "dtype": "bfloat16",
+  "dataset_rows": 512,
+  "parameters": {
+    "total_parameters": 494573440,
+    "trainable_parameters": 540672
+  },
+  "settings": {
+    "seed": 17,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "device": "auto",
+    "batch_size": 1,
+    "grad_accum": 4,
+    "max_prompt_length": 256,
+    "max_completion_length": 64,
+    "max_new_tokens": 64,
+    "input": "data/train_sft.jsonl",
+    "output": "results/sft_seed17",
+    "steps": 16,
+    "learning_rate": 0.0002
+  },
+  "relocated_from": "results/pilot_sft16_seed17"
+}

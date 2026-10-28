@@ -1,0 +1,11 @@
+{
+  "updates": 128,
+  "training_updates": 128,
+  "wall_time_seconds": 683.077,
+  "generated_tokens": 7070,
+  "updated_tokens": 14140,
+  "peak_cuda_allocated_bytes": 1332433920,
+  "peak_cuda_reserved_bytes": 2275409920,
+  "adapter_path": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\grpo_format_seed17\\adapter\\policy",
+  "rollout_prompts": 128
+}

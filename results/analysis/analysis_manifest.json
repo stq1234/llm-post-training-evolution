@@ -1,0 +1,156 @@
+{
+  "analysis_version": "results-summary-v4",
+  "generated_at_utc": "2026-10-28T11:37:39+00:00",
+  "expected_methods": [
+    "baseline",
+    "sft",
+    "sft_long",
+    "dpo",
+    "online_dpo",
+    "grpo",
+    "grpo_format"
+  ],
+  "expected_seeds": [
+    17,
+    29
+  ],
+  "method_evaluation_seeds": {
+    "baseline": [
+      null
+    ],
+    "sft": [
+      17,
+      29
+    ],
+    "sft_long": [
+      17
+    ],
+    "dpo": [
+      17,
+      29
+    ],
+    "online_dpo": [
+      17,
+      29
+    ],
+    "grpo": [
+      17,
+      29
+    ],
+    "grpo_format": [
+      17,
+      29
+    ]
+  },
+  "single_seed_methods": [
+    "baseline",
+    "sft_long"
+  ],
+  "expected_splits": [
+    "validation",
+    "test_id",
+    "test_ood",
+    "test_counterfactual"
+  ],
+  "prediction_examples": 6912,
+  "missing_prediction_files": [],
+  "incomplete_evaluation_runs": [],
+  "runs_with_training_summaries": 11,
+  "missing_training_summaries": [],
+  "counterfactual_pair_details": 960,
+  "selected_error_cases": 21,
+  "warmstart_candidate_selection": {
+    "rule": "validation format_valid >= 0.95 and joint_correct < 0.95; choose minimum steps",
+    "selected_run": "sft_seed17",
+    "candidates": [
+      {
+        "candidate": "SFT-16",
+        "run": "sft_seed17",
+        "seed": 17,
+        "steps": 16,
+        "n": 96,
+        "prediction_file": "eval\\sft_seed17\\validation\\predictions.jsonl",
+        "format_valid": 0.9895833333333334,
+        "answer_correct": 0.7395833333333334,
+        "joint_correct": 0.4375,
+        "format_pass_95": true,
+        "joint_below_95": true,
+        "eligible": true,
+        "selected": true,
+        "wall_time_seconds": 18.306,
+        "generated_tokens": 0.0,
+        "updated_tokens": 927.0,
+        "peak_cuda_allocated_gib": 1.3498334884643555,
+        "peak_cuda_reserved_gib": 2.234375
+      },
+      {
+        "candidate": "SFT-32",
+        "run": "pilot_sft32_seed17",
+        "seed": 17,
+        "steps": 32,
+        "n": 96,
+        "prediction_file": "eval\\pilot_sft32_seed17\\validation\\predictions.jsonl",
+        "format_valid": 1.0,
+        "answer_correct": 0.9479166666666666,
+        "joint_correct": 0.7604166666666666,
+        "format_pass_95": true,
+        "joint_below_95": true,
+        "eligible": true,
+        "selected": false,
+        "wall_time_seconds": 27.047,
+        "generated_tokens": 0.0,
+        "updated_tokens": 1871.0,
+        "peak_cuda_allocated_gib": 1.3498334884643555,
+        "peak_cuda_reserved_gib": 2.234375
+      }
+    ]
+  },
+  "method_differences_by_seed": 480,
+  "dpo_logp_steps": 128,
+  "dpo_logp_margin_check_max_abs_error": 1.5515834093093872e-06,
+  "baseline_validation_outer_fenced": {
+    "n": 91,
+    "total": 96
+  },
+  "test_sets_used_for_model_selection": false,
+  "training_resources_note": "wall time may include contention from shared Unity processes; no exclusive benchmark claim",
+  "figure_paths": [
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\fig1_test_joint_accuracy.png",
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\fig1_test_joint_accuracy.pdf",
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\fig2_task_error_analysis.png",
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\fig2_task_error_analysis.pdf",
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\fig3_training_resources_curves.png",
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\fig3_training_resources_curves.pdf",
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\dpo_logp_margin.png",
+    "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\figures\\dpo_logp_margin.pdf"
+  ],
+  "selection_rule": "每方法、每错误类别至多1例；优先种子17，再29，随后test_id、test_ood、test_counterfactual及升序id。",
+  "metric_source": "strict main metrics use score_response on original prediction text and canonical rows; lenient_answer_correct and normalized_joint_correct are diagnostic only",
+  "diagnostic_metric_definitions": {
+    "lenient_answer_correct": "lenient_answer(original_prediction) == canonical_answer",
+    "normalized_joint_correct": "score_response after removing only one outer ```json ... ``` fence"
+  },
+  "counterfactual_answer_change_diagnostics": {
+    "pair_details": 960,
+    "run_rows": 12,
+    "missing_prediction_files": [],
+    "gold_changed_pairs_per_split": 80,
+    "gold_unchanged_pairs_per_split": 0,
+    "definitions": {
+      "gold_pair_counts": "counted from canonical test_counterfactual rows grouped by pair_id",
+      "strict_answer_extraction": "one JSON object, exact keys answer/evidence, answer is string; same parse/key/type preconditions as score_response.answer_correct",
+      "changed_behavior_rate": "on all gold-answer-changed pairs, both strict answers parse and predicted answers differ",
+      "correct_answer_change_rate": "on all gold-answer-changed pairs, both predicted answers equal their respective gold answers",
+      "unchanged_answer_consistency_rate": "on all gold-answer-unchanged pairs, both strict answers parse and predictions match",
+      "denominator_policy": "all canonical pairs in the relevant gold category; missing or unparseable outputs count as failures"
+    }
+  },
+  "counterfactual_answer_change_definitions": {
+    "gold_pair_counts": "counted from canonical test_counterfactual rows grouped by pair_id",
+    "strict_answer_extraction": "one JSON object, exact keys answer/evidence, answer is string; same parse/key/type preconditions as score_response.answer_correct",
+    "changed_behavior_rate": "on all gold-answer-changed pairs, both strict answers parse and predicted answers differ",
+    "correct_answer_change_rate": "on all gold-answer-changed pairs, both predicted answers equal their respective gold answers",
+    "unchanged_answer_consistency_rate": "on all gold-answer-unchanged pairs, both strict answers parse and predictions match",
+    "denominator_policy": "all canonical pairs in the relevant gold category; missing or unparseable outputs count as failures"
+  }
+}

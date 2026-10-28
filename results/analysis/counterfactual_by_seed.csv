@@ -1,0 +1,13 @@
+﻿method,seed,expected_pairs,complete_pairs,incomplete_pairs,paired_double_joint_success
+baseline,,80,80,0,0.0
+sft,17,80,80,0,0.15
+sft,29,80,80,0,0.2875
+sft_long,17,80,80,0,0.4125
+dpo,17,80,80,0,0.0875
+dpo,29,80,80,0,0.0
+online_dpo,17,80,80,0,0.2
+online_dpo,29,80,80,0,0.3125
+grpo,17,80,80,0,0.275
+grpo,29,80,80,0,0.325
+grpo_format,17,80,80,0,0.05
+grpo_format,29,80,80,0,0.2875

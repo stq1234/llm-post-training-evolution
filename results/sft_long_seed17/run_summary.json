@@ -1,0 +1,11 @@
+{
+  "updates": 256,
+  "training_updates": 256,
+  "wall_time_seconds": 395.295,
+  "generated_tokens": 0,
+  "updated_tokens": 14931,
+  "peak_cuda_allocated_bytes": 1449372672,
+  "peak_cuda_reserved_bytes": 2399141888,
+  "adapter_path": "D:\\北京大学\\硕士\\大语言模型与应用\\作业5_后训练技术演进\\results\\sft_long_seed17\\adapter",
+  "relocated_from": "results/sft_seed17"
+}

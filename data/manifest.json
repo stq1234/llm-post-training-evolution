@@ -1,0 +1,106 @@
+{
+  "generator": "synthetic-evidence-qa-v1",
+  "seed": 20261028,
+  "preference_seed": 20261029,
+  "split_sizes": {
+    "train_sft": 512,
+    "train_pref": 256,
+    "validation": 96,
+    "test_id": 160,
+    "test_ood": 160,
+    "test_counterfactual": 160
+  },
+  "statistics": {
+    "train_sft": {
+      "rows": 512,
+      "task_types": {
+        "lookup": 128,
+        "negation": 128,
+        "two_hop": 128,
+        "unanswerable": 128
+      },
+      "two_hop_modes": {
+        "relation": 64,
+        "sum": 64
+      },
+      "unique_prompts": 512
+    },
+    "train_pref": {
+      "rows": 256,
+      "task_types": {
+        "lookup": 64,
+        "negation": 64,
+        "two_hop": 64,
+        "unanswerable": 64
+      },
+      "two_hop_modes": {
+        "relation": 32,
+        "sum": 32
+      },
+      "unique_prompts": 256
+    },
+    "validation": {
+      "rows": 96,
+      "task_types": {
+        "lookup": 24,
+        "negation": 24,
+        "two_hop": 24,
+        "unanswerable": 24
+      },
+      "two_hop_modes": {
+        "relation": 12,
+        "sum": 12
+      },
+      "unique_prompts": 96
+    },
+    "test_id": {
+      "rows": 160,
+      "task_types": {
+        "lookup": 40,
+        "negation": 40,
+        "two_hop": 40,
+        "unanswerable": 40
+      },
+      "two_hop_modes": {
+        "relation": 20,
+        "sum": 20
+      },
+      "unique_prompts": 160
+    },
+    "test_ood": {
+      "rows": 160,
+      "task_types": {
+        "lookup": 40,
+        "negation": 40,
+        "two_hop": 40,
+        "unanswerable": 40
+      },
+      "two_hop_modes": {
+        "relation": 20,
+        "sum": 20
+      },
+      "unique_prompts": 160
+    },
+    "test_counterfactual": {
+      "rows": 160,
+      "task_types": {
+        "lookup": 40,
+        "negation": 40,
+        "two_hop": 40,
+        "unanswerable": 40
+      },
+      "two_hop_modes": {
+        "relation": 20,
+        "sum": 20
+      },
+      "unique_prompts": 160
+    }
+  },
+  "preference_rows": 256,
+  "preference_error_types": {
+    "over_refusal": 53,
+    "unsupported_answer": 63,
+    "wrong_answer": 69,
+    "wrong_citation": 71
+  }
+}
