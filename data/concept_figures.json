@@ -1,0 +1,248 @@
+{
+  "metadata": {
+    "language": "zh-CN",
+    "style": "white background; restrained blue, teal, purple, ochre and gray; editable vector text",
+    "scope": "literature-level concepts for the survey; excludes experiment-specific source-code mappings",
+    "citations": "Bracketed numbers match the references in 综述论文.md and notes/survey_evidence.md."
+  },
+  "sources": {
+    "1": {
+      "citation": "Ouyang et al. (2022), Training Language Models to Follow Instructions with Human Feedback",
+      "url": "https://arxiv.org/abs/2203.02155"
+    },
+    "3": {
+      "citation": "Nakano et al. (2021), WebGPT: Browser-assisted Question-answering with Human Feedback",
+      "url": "https://arxiv.org/abs/2112.09332"
+    },
+    "7": {
+      "citation": "Rafailov et al. (2023), Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290"
+    },
+    "8": {
+      "citation": "Zhao et al. (2023), SLiC-HF: Sequence Likelihood Calibration with Human Feedback",
+      "url": "https://arxiv.org/abs/2305.10425"
+    },
+    "15": {
+      "citation": "Guo et al. (2024), Direct Language Model Alignment from Online AI Feedback",
+      "url": "https://arxiv.org/abs/2402.04792"
+    },
+    "16": {
+      "citation": "Calandriello et al. (2024), Human Alignment through Online Preference Optimisation",
+      "url": "https://arxiv.org/abs/2403.08635"
+    },
+    "17": {
+      "citation": "Yuan et al. (2024), Self-Rewarding Language Models",
+      "url": "https://arxiv.org/abs/2401.10020"
+    },
+    "18": {
+      "citation": "Wu et al. (2024), Self-Play Preference Optimization for Language Model Alignment",
+      "url": "https://arxiv.org/abs/2405.00675"
+    },
+    "22": {
+      "citation": "Lightman et al. (2023), Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050"
+    },
+    "23": {
+      "citation": "Wang et al. (2023), Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations",
+      "url": "https://arxiv.org/abs/2312.08935"
+    },
+    "24": {
+      "citation": "Shao et al. (2024), DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "url": "https://arxiv.org/abs/2402.03300"
+    },
+    "25": {
+      "citation": "Lambert et al. (2024/2025), Tülu 3: Pushing Frontiers in Open Language Model Post-Training",
+      "url": "https://arxiv.org/abs/2411.15124"
+    },
+    "26": {
+      "citation": "DeepSeek-AI et al. (2025), DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948"
+    },
+    "28": {
+      "citation": "Yu et al. (2025), DAPO: An Open-Source LLM Reinforcement Learning System at Scale",
+      "url": "https://arxiv.org/abs/2503.14476"
+    },
+    "31": {
+      "citation": "Zhang et al. (2026), Reinforcement-aware Knowledge Distillation for LLM Reasoning",
+      "url": "https://arxiv.org/abs/2602.22495"
+    },
+    "35": {
+      "citation": "Yao et al. (2024), τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/abs/2406.12045"
+    },
+    "36": {
+      "citation": "Han et al. (2026), FutureWorld: A Live Reinforcement Learning Environment for Predictive Agents with Real-World Outcome Rewards",
+      "url": "https://arxiv.org/abs/2604.26733"
+    },
+    "37": {
+      "citation": "Helff et al. (2026), LLMs Gaming Verifiers: RLVR can Lead to Reward Hacking",
+      "url": "https://arxiv.org/abs/2604.15149"
+    },
+    "40": {
+      "citation": "Kimi Team (2026), Kimi K2.5: Visual Agentic Intelligence",
+      "url": "https://arxiv.org/abs/2602.02276"
+    },
+    "42": {
+      "citation": "Sullivan & Koller (2026), On Language Drift during RLVR Post-Training",
+      "url": "https://arxiv.org/abs/2610.02015"
+    }
+  },
+  "timeline": {
+    "title": "大语言模型后训练：目标与反馈范式的分支扩展",
+    "subtitle": "按代表性公开研究标注时间；不同路线围绕偏好、可验证推理、能力迁移与环境行为并行发展。",
+    "years": [2022, 2023, 2024, 2025, 2026],
+    "lanes": ["偏好对齐", "推理与可验证奖励", "蒸馏与能力迁移", "环境化智能体"],
+    "nodes": [
+      {"id": "rlhf", "year": 2022, "lane": 0, "tone": "blue", "title": "SFT + PPO-RLHF", "detail": "示范、奖励模型与策略更新 [1]"},
+      {"id": "dpo", "year": 2023, "lane": 0, "tone": "blue", "title": "DPO / SLiC-HF", "detail": "离线成对偏好目标 [7, 8]"},
+      {"id": "online_pref", "year": 2024, "lane": 0, "tone": "blue", "title": "在线偏好优化", "detail": "当前策略采样与迭代反馈 [15–18]"},
+      {"id": "prm", "year": 2023, "lane": 1, "tone": "teal", "title": "过程监督 / PRM", "detail": "中间推理步骤的评价 [22, 23]"},
+      {"id": "grpo_rlvr", "year": 2024, "lane": 1, "offset": 0.31, "tone": "teal", "title": "GRPO / PPO-RLVR", "detail": "组相对更新与可验证结果 [24, 25]"},
+      {"id": "r1_dapo", "year": 2025, "lane": 1, "tone": "teal", "title": "DeepSeek-R1 / DAPO", "detail": "推理 RL 与长链训练配方 [26, 28]"},
+      {"id": "boundary", "year": 2026, "lane": 1, "tone": "gray", "title": "评估边界研究", "detail": "验证器投机、推理语言漂移 [37, 42]"},
+      {"id": "r1_distill", "year": 2025, "lane": 2, "tone": "purple", "title": "推理轨迹蒸馏", "detail": "R1 生成样本迁移到学生 [26]"},
+      {"id": "rl_kd", "year": 2026, "lane": 2, "tone": "purple", "title": "RL-aware 蒸馏", "detail": "教师信号用于学生 rollout [31]"},
+      {"id": "tau", "year": 2024, "lane": 3, "tone": "teal", "title": "多轮工具环境", "detail": "工具—用户任务交互 [35]"},
+      {"id": "futureworld", "year": 2026, "lane": 3, "offset": -0.31, "tone": "teal", "title": "FutureWorld", "detail": "真实事件结果延迟回填 [36]"},
+      {"id": "kimi", "year": 2026, "lane": 3, "offset": 0.31, "tone": "teal", "title": "Kimi K2.5 · PARL", "detail": "并行智能体与多模态奖励 [40]"}
+    ],
+    "edges": [
+      {"id": "r1_to_distill", "from": "r1_dapo", "to": "r1_distill", "label": "R1 轨迹转为学生监督"}
+    ],
+    "footer": "时间先后不表示方法替代；箭头仅表示可追溯的数据关系。"
+  },
+  "loops": {
+    "title": "训练回路：静态监督与在线反馈的区别",
+    "subtitle": "示范或偏好对可固定采集；在线方法把策略采样与反馈放入更新闭环。",
+    "columns": [
+      {
+        "name": "SFT",
+        "tone": "blue",
+        "subtitle": "固定示范 · 监督更新 [1]",
+        "steps": [
+          {"kind": "data", "title": "示范样本", "detail": "提示 x 与目标回答 y*"},
+          {"kind": "loss", "title": "目标回答词元损失", "detail": "模仿示范中的期望回答"},
+          {"kind": "update", "title": "更新策略 πθ", "detail": "示范数据不由当前策略刷新"}
+        ],
+        "loop": false,
+        "note": "静态监督数据；没有在线候选排序。"
+      },
+      {
+        "name": "离线 DPO",
+        "tone": "blue",
+        "subtitle": "固定偏好对 · 不在线采样 [7]",
+        "steps": [
+          {"kind": "data", "title": "静态偏好对", "detail": "(x, chosen, rejected)"},
+          {"kind": "process", "title": "计算策略概率比", "detail": "当前策略与固定 πref"},
+          {"kind": "loss", "title": "DPO 成对偏好目标", "detail": "提高 chosen 相对 rejected"},
+          {"kind": "update", "title": "更新策略 πθ", "detail": "训练集偏好对保持固定"}
+        ],
+        "loop": false,
+        "note": "πref 提供概率参照，不生成新回答。"
+      },
+      {
+        "name": "在线偏好优化",
+        "tone": "purple",
+        "subtitle": "采样后比较 · 反馈驱动更新 [15–18]",
+        "steps": [
+          {"kind": "data", "title": "提示 x", "detail": "从当前任务分布取样"},
+          {"kind": "policy", "title": "当前策略采样候选", "detail": "生成多个回答供比较"},
+          {"kind": "judge", "title": "人类 / AI judge 反馈", "detail": "比较质量并形成偏好"},
+          {"kind": "loss", "title": "偏好目标更新 πθ", "detail": "使用新产生的偏好样本"},
+          {"kind": "update", "title": "更新策略并重采样", "detail": "反馈跟随策略分布变化"}
+        ],
+        "loop": true,
+        "note": "循环反馈可以刷新候选分布，但也可能放大评判器盲点。"
+      },
+      {
+        "name": "GRPO / RLVR",
+        "tone": "teal",
+        "subtitle": "组采样 · 可验证任务中的在线 RL [24, 26]",
+        "steps": [
+          {"kind": "data", "title": "提示 x", "detail": "数学、代码等推理任务"},
+          {"kind": "policy", "title": "πold 生成回答组", "detail": "同一提示采样多个候选"},
+          {"kind": "judge", "title": "Verifier / PRM 评分", "detail": "结果或步骤级反馈"},
+          {"kind": "loss", "title": "组优势与策略目标", "detail": "裁剪比率；可含固定 πref KL"},
+          {"kind": "update", "title": "更新 πθ，再生成新组", "detail": "当前策略进入下一轮 rollout"}
+        ],
+        "loop": true,
+        "note": "πold 是 rollout/ratio 分母；πref 是 KL 锚点，两者作用不同。"
+      }
+    ],
+    "footer": "GRPO/RLVR 的奖励、归一化与正则项随具体配方而异。"
+  },
+  "reward_layers": {
+    "title": "后训练反馈的监督单元、信号位置与盲区",
+    "subtitle": "监督粒度从完整回答延伸到偏好、推理步骤、任务结果和交互轨迹；各类信号回答的问题不同。",
+    "rows": [
+      {
+        "label": "示范 / SFT [1]",
+        "unit": "提示与目标回答中的词元",
+        "timing": "训练时：对示范回答进行逐词元拟合",
+        "blind": "依赖示范覆盖；学习复现目标文本，不直接表示候选之间的相对偏好。"
+      },
+      {
+        "label": "成对偏好 [1, 7]",
+        "unit": "同一提示下的回答对 (chosen, rejected)",
+        "timing": "候选回答完成后：提供比较标签或偏好排序",
+        "blind": "提供相对次序而非逐步修正；会受标注一致性与评判器偏差影响。"
+      },
+      {
+        "label": "过程步骤 [22, 23]",
+        "unit": "推理轨迹中的步骤或步骤边界",
+        "timing": "生成过程中：局部判断进入 PRM 或逐步奖励",
+        "blind": "步骤标签可能有噪声；局部看似合理不保证整条推理最终正确。"
+      },
+      {
+        "label": "结果验证 [24–26, 28]",
+        "unit": "最终答案、程序执行结果或约束满足",
+        "timing": "完整回答后：规则、测试或 verifier 返回结果信号",
+        "blind": "常为稀疏终局反馈，且只覆盖 verifier 定义的属性；可能出现奖励投机。"
+      },
+      {
+        "label": "环境轨迹 [3, 35, 36, 40]",
+        "unit": "多轮状态、动作、观察与任务结果",
+        "timing": "交互中或任务结束后：工具、环境或现实结果回报",
+        "blind": "交互成本高、回报可能延迟；环境状态和评测设定也会限制外推。"
+      }
+    ],
+    "footer": "各项为典型监督形式与机制性限制，不表示每项方法都采用相同实现。"
+  },
+  "r1_pipeline": {
+    "title": "DeepSeek-R1 系列：两种训练配方与学生蒸馏",
+    "subtitle": "R1-Zero 从基础模型直接做规则奖励 RL；R1 的混合 SFT 重新从 V3-Base 初始化，虚线标出数据流。",
+    "zero_label": "A · R1-Zero：直接强化学习分支",
+    "zero_nodes": [
+      {"title": "DeepSeek-V3-Base", "detail": "共享的基础模型起点", "tone": "blue"},
+      {"title": "GRPO 直接 RL", "detail": "答案正确性 + 格式规则奖励", "tone": "teal"},
+      {"title": "DeepSeek-R1-Zero", "detail": "跳过冷启动 SFT [24, 26]", "tone": "purple"}
+    ],
+    "r1_label": "B · DeepSeek-R1：冷启动与多阶段训练主线",
+    "main_nodes": [
+      {"title": "DeepSeek-V3-Base", "detail": "独立启动 R1 主线 [26]", "tone": "blue"},
+      {"title": "冷启动 SFT", "detail": "精选推理示范", "tone": "blue"},
+      {"title": "第一阶段推理 RL", "detail": "规则奖励 + 语言一致性", "tone": "teal"},
+      {"title": "数据构建", "detail": "推理：首阶段 RL\ncheckpoint 拒绝采样\n非推理：V3 SFT 数据 [26]", "detail_size": 7.0, "tone": "gray"},
+      {"title": "混合数据 SFT", "detail": "DeepSeek-V3-Base 重新 SFT", "tone": "blue"},
+      {"title": "第二阶段全场景 RL", "detail": "推理规则 + 通用偏好/安全奖励", "tone": "teal"},
+      {"title": "DeepSeek-R1", "detail": "多阶段训练完成", "tone": "purple"}
+    ],
+    "main_edges": [
+      {"from": 0, "to": 1, "kind": "model"},
+      {"from": 1, "to": 2, "kind": "model"},
+      {"from": 2, "to": 3, "kind": "data"},
+      {"from": 3, "to": 4, "kind": "data"},
+      {"from": 4, "to": 5, "kind": "model"},
+      {"from": 5, "to": 6, "kind": "model"}
+    ],
+    "reinitialization_edge": {"from": 0, "to": 4, "label": "V3-Base 权重重新初始化"},
+    "dataset_node": 3,
+    "distill_label": "C · 能力迁移：精选混合数据用于学生 SFT",
+    "distill_nodes": [
+      {"title": "DeepSeek-R1-Distill", "detail": "Qwen / Llama 等学生模型", "tone": "purple"},
+      {"title": "学生 SFT", "detail": "在对应基础模型上微调", "tone": "blue"},
+      {"title": "约 80 万条精选样本", "detail": "推理 + 非推理数据 [26]", "tone": "teal"}
+    ],
+    "footer": "实线表示模型初始化/训练；虚线表示数据流。第二阶段 SFT 重新从 V3-Base 初始化；R1-Zero 不是 R1 主线前置。"
+  }
+}

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1023.12pt" height="473.328pt" viewBox="0 0 1023.12 473.328" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-28T21:14:02.719163</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 473.328 
+L 1023.12 473.328 
+L 1023.12 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 22.473 155.7216 
+L 999.531 155.7216 
+Q 1002.042 155.7216 1002.042 153.2268 
+L 1002.042 102.7764 
+Q 1002.042 100.2816 999.531 100.2816 
+L 22.473 100.2816 
+Q 19.962 100.2816 19.962 102.7764 
+L 19.962 153.2268 
+Q 19.962 155.7216 22.473 155.7216 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #fbfcfd"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 22.473 279.9072 
+L 999.531 279.9072 
+Q 1002.042 279.9072 1002.042 277.4124 
+L 1002.042 226.962 
+Q 1002.042 224.4672 999.531 224.4672 
+L 22.473 224.4672 
+Q 19.962 224.4672 19.962 226.962 
+L 19.962 277.4124 
+Q 19.962 279.9072 22.473 279.9072 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #fbfcfd"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 22.473 404.0928 
+L 999.531 404.0928 
+Q 1002.042 404.0928 1002.042 401.598 
+L 1002.042 351.1476 
+Q 1002.042 348.6528 999.531 348.6528 
+L 22.473 348.6528 
+Q 19.962 348.6528 19.962 351.1476 
+L 19.962 401.598 
+Q 19.962 404.0928 22.473 404.0928 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #fbfcfd"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 21.636 91.9656 
+L 1001.484 91.9656 
+" clip-path="url(#p2f51ad0a89)" style="fill: none; stroke: #dfe5e9; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #253746; font: 700 19.3px 'Microsoft YaHei'; text-anchor: start" x="17.73" y="31.861439" transform="rotate(-0 17.73 31.861439)">后训练反馈的监督单元、信号位置与盲区</text>
+   </g>
+   <g id="text_2">
+    <text style="fill: #5c6a75; font: 10px 'Microsoft YaHei'; text-anchor: start" x="18.846" y="49.258706" transform="rotate(-0 18.846 49.258706)">监督粒度从完整回答延伸到偏好、推理步骤、任务结果和交互轨迹；各类信号回答的问题不同。</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #43535f; font: 600 9.5px 'Microsoft YaHei'; text-anchor: start" x="23.31" y="79.613011" transform="rotate(-0 23.31 79.613011)">反馈形式</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #43535f; font: 600 9.5px 'Microsoft YaHei'; text-anchor: middle" x="295.056" y="79.613011" transform="rotate(-0 295.056 79.613011)">监督单元</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #43535f; font: 600 9.5px 'Microsoft YaHei'; text-anchor: middle" x="567.36" y="79.613011" transform="rotate(-0 567.36 79.613011)">信号进入训练的位置</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #43535f; font: 600 9.5px 'Microsoft YaHei'; text-anchor: middle" x="846.36" y="79.613011" transform="rotate(-0 846.36 79.613011)">需要留意的盲区</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 25.263 149.346 
+L 163.089 149.346 
+Q 167.274 149.346 167.274 145.188 
+L 167.274 110.8152 
+Q 167.274 106.6572 163.089 106.6572 
+L 25.263 106.6572 
+Q 21.078 106.6572 21.078 110.8152 
+L 21.078 145.188 
+Q 21.078 149.346 25.263 149.346 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #eaf1f7; stroke: #477aa5; stroke-width: 0.95; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_7">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="295.056" y="130.397498" transform="rotate(-0 295.056 130.397498)">提示与目标回答中的词元</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="567.36" y="130.397498" transform="rotate(-0 567.36 130.397498)">训练时：对示范回答进行逐词元拟合</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="846.36" y="130.397498" transform="rotate(-0 846.36 130.397498)">依赖示范覆盖；学习复现目标文本，不直接表示候选之间的相对偏好。</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 25.263 211.4388 
+L 163.089 211.4388 
+Q 167.274 211.4388 167.274 207.2808 
+L 167.274 172.908 
+Q 167.274 168.75 163.089 168.75 
+L 25.263 168.75 
+Q 21.078 168.75 21.078 172.908 
+L 21.078 207.2808 
+Q 21.078 211.4388 25.263 211.4388 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #f0eef7; stroke: #7a6fa7; stroke-width: 0.95; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_10">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="295.056" y="192.626236" transform="rotate(-0 295.056 192.626236)">同一提示下的回答对 (chosen, rejected)</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="567.36" y="192.490298" transform="rotate(-0 567.36 192.490298)">候选回答完成后：提供比较标签或偏好排序</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="846.36" y="192.490298" transform="rotate(-0 846.36 192.490298)">提供相对次序而非逐步修正；会受标注一致性与评判器偏差影响。</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 25.263 273.5316 
+L 163.089 273.5316 
+Q 167.274 273.5316 167.274 269.3736 
+L 167.274 235.0008 
+Q 167.274 230.8428 163.089 230.8428 
+L 25.263 230.8428 
+Q 21.078 230.8428 21.078 235.0008 
+L 21.078 269.3736 
+Q 21.078 273.5316 25.263 273.5316 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #eaf4f2; stroke: #418982; stroke-width: 0.95; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_13">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="295.056" y="254.583098" transform="rotate(-0 295.056 254.583098)">推理轨迹中的步骤或步骤边界</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="567.36" y="254.583098" transform="rotate(-0 567.36 254.583098)">生成过程中：局部判断进入 PRM 或逐步奖励</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="846.36" y="254.583098" transform="rotate(-0 846.36 254.583098)">步骤标签可能有噪声；局部看似合理不保证整条推理最终正确。</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 25.263 335.6244 
+L 163.089 335.6244 
+Q 167.274 335.6244 167.274 331.4664 
+L 167.274 297.0936 
+Q 167.274 292.9356 163.089 292.9356 
+L 25.263 292.9356 
+Q 21.078 292.9356 21.078 297.0936 
+L 21.078 331.4664 
+Q 21.078 335.6244 25.263 335.6244 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #f7f2e9; stroke: #a98750; stroke-width: 0.95; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_16">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="295.056" y="316.675898" transform="rotate(-0 295.056 316.675898)">最终答案、程序执行结果或约束满足</text>
+   </g>
+   <g id="text_17">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="567.36" y="316.675898" transform="rotate(-0 567.36 316.675898)">完整回答后：规则、测试或 verifier 返回结果信号</text>
+   </g>
+   <g id="text_18">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="846.36" y="316.675898" transform="rotate(-0 846.36 316.675898)">常为稀疏终局反馈，且只覆盖 verifier 定义的属性；可能出现奖励投机。</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 25.263 397.7172 
+L 163.089 397.7172 
+Q 167.274 397.7172 167.274 393.5592 
+L 167.274 359.1864 
+Q 167.274 355.0284 163.089 355.0284 
+L 25.263 355.0284 
+Q 21.078 355.0284 21.078 359.1864 
+L 21.078 393.5592 
+Q 21.078 397.7172 25.263 397.7172 
+z
+" clip-path="url(#p2f51ad0a89)" style="fill: #f1f3f5; stroke: #77838e; stroke-width: 0.95; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_19">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="295.056" y="378.768698" transform="rotate(-0 295.056 378.768698)">多轮状态、动作、观察与任务结果</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="567.36" y="378.768698" transform="rotate(-0 567.36 378.768698)">交互中或任务结束后：工具、环境或现实结果回报</text>
+   </g>
+   <g id="text_21">
+    <text style="fill: #3f4f5a; font: 8.7px 'Microsoft YaHei'; text-anchor: middle" x="846.36" y="378.768698" transform="rotate(-0 846.36 378.768698)">交互成本高、回报可能延迟；环境状态和评测设定也会限制外推。</text>
+   </g>
+   <g id="text_22">
+    <text style="fill: #65727b; font: 8px 'Microsoft YaHei'; text-anchor: end" x="1002.6" y="446.212725" transform="rotate(-0 1002.6 446.212725)">各项为典型监督形式与机制性限制，不表示每项方法都采用相同实现。</text>
+   </g>
+   <g id="text_23">
+    <text style="fill: #244b69; font: 600 9.2px 'Microsoft YaHei'; text-anchor: middle" x="94.176" y="130.535194" transform="rotate(-0 94.176 130.535194)">示范 / SFT [1]</text>
+   </g>
+   <g id="text_24">
+    <text style="fill: #514873; font: 600 9.2px 'Microsoft YaHei'; text-anchor: middle" x="94.176" y="192.627994" transform="rotate(-0 94.176 192.627994)">成对偏好 [1, 7]</text>
+   </g>
+   <g id="text_25">
+    <text style="fill: #235a56; font: 600 9.2px 'Microsoft YaHei'; text-anchor: middle" x="94.176" y="254.720794" transform="rotate(-0 94.176 254.720794)">过程步骤 [22, 23]</text>
+   </g>
+   <g id="text_26">
+    <text style="fill: #66522f; font: 600 9.2px 'Microsoft YaHei'; text-anchor: middle" x="94.176" y="316.813594" transform="rotate(-0 94.176 316.813594)">结果验证 [24–26, 28]</text>
+   </g>
+   <g id="text_27">
+    <text style="fill: #48545e; font: 600 9.2px 'Microsoft YaHei'; text-anchor: middle" x="94.176" y="378.906394" transform="rotate(-0 94.176 378.906394)">环境轨迹 [3, 35, 36, 40]</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p2f51ad0a89">
+   <rect x="9.36" y="9.36" width="1004.4" height="454.608"/>
+  </clipPath>
+ </defs>
+</svg>
